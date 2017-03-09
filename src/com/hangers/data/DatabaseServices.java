@@ -27,7 +27,7 @@ public class DatabaseServices {
 			connection.close();
 			return "Success";
 		}else{
-			return "Failed";
+			return "Failed to connect to db";
 	    }
 	}
 	public static String insertToDB(HashMap<String, String> newItem)
