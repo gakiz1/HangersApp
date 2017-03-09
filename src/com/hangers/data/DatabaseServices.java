@@ -22,16 +22,20 @@ import com.hangers.pojo.Item;
 
 public class DatabaseServices {
 	private final static String INSERT_QUERY="INSERT INTO STOCKIN(?,?,?,?,?,?)";
-	private static String createQuery = "DESC STOCKIN";
+	private static String createQuery = "SELECT * FROM STOCKIN";
 	public static String CreateTable()throws ClassNotFoundException, URISyntaxException, SQLException {
 		
 		Connection connection = DatabaseConnectivity.getConnected();
 		if (connection != null) {
 			Statement st = connection.createStatement();
-			st.execute(createQuery);
+			ResultSet rs = st.executeQuery(createQuery);
+			String result="";
+			while(rs.next()){
+				result+=rs.getString(0)+",";
+			}
 			System.out.println("Query executed!");
 			connection.close();
-			return "Success";
+			return result;
 		}else{
 			return "Failed to connect to db";
 	    }
