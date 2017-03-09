@@ -76,7 +76,7 @@ public class TestService {
 	public String deleteItem(@PathParam("itemNumber") String itemNumber) throws ClassNotFoundException, URISyntaxException, SQLException{
 		return DatabaseServices.deleteItem(itemNumber);
 	}
-	@POST
+	@GET
 	@Path("/createTable")
 	public String createTable(){
 		try{
