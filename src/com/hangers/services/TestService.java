@@ -41,20 +41,10 @@ public class TestService {
 			}
 			
 			
-		} catch (JSONException e) {
+		} catch (Exception e) {
 			System.out.println("JSONException : " + e);
 			return "JSONException : " + e;
-		} catch (ClassNotFoundException e) {
-			System.out.println("ClassNotFoundException");
-			System.out.println("DriverClass Not Found! " + e);
-			return "DriverClass Not Found! " + e;
-		} catch (URISyntaxException e) {
-			System.out.println("URISyntax Exception : " + e);
-			return "URISyntax Exception : " + e;
-		} catch (SQLException e) {
-			System.out.println("SQL Exception : " + e);
-			return "SQL Exception : " + e;
-		}
+		} 
 	}
 	
 	@GET
