@@ -14,7 +14,7 @@ import org.json.JSONObject;
 import com.hangers.constants.DigitalDiningConstants;
 
 public class DatabaseServices {
-	private static String createQuery = "CREATE TABLE USER("
+	private static String createQuery = "CREATE TABLE USERS("
 			+ "USER_NAME CHAR(50) PRIMARY KEY NOT NULL,"
 			+ "PASSWORD CHAR(50)  NOT NULL)";
 	public static String CreateTable()throws ClassNotFoundException, URISyntaxException, SQLException {
