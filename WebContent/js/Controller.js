@@ -4,8 +4,8 @@ angular.module("HangersModule",[])
 				var payload = {
 						"itemCode"   : $scope.ITEM_CODE,
 						"itemCategory": $scope.ITEM_CATEGORY,
-						"itemSize"	: $scope.ITEM_SIZE,
 						"itemBrand" : $scope.ITEM_BRAND,
+						"itemSize"	: $scope.ITEM_SIZE,
 						"itemPrice" : $scope.ITEM_PRICE,
 						"dateIn" : $scope.DATE_IN,
 						
