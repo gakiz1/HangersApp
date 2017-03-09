@@ -2,24 +2,23 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Digital Dining</title>
+<title>Hangers Mens Apparels</title>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
 <script src="js/app.js"></script>
 <script src="js/Controller.js"></script>
 
 </head>
-<body ng-app="digitalDining" ng-controller="insertController">
+<body ng-app="HangersModule" ng-controller="insertController">
 	<div>
-		<input type="text" ng-model="ITEM_NUMBER" placeholder="itemID"/>
-		<input type="text" ng-model="ITEM_NAME" placeholder="itemName"/>
-		<input type="text" ng-model="ITEM_PRICE" placeholder="itemPrice"/>
-		<input type="text" ng-model="ITEM_CATEGORY" placeholder="itemCategory"/>
-		<button ng-click="insert()">Add New Item</button>
+		Item Code: &nbsp;<input type="text" ng-model="ITEM_CODE" placeholder="Item Code"/><br>
+		Category: &nbsp;<input type="text" ng-model="ITEM_CATEGORY" placeholder="Category"/><br>
+		Size: &nbsp;<input type="text" ng-model="ITEM_SIZE" placeholder="Size"/><br>
+		Brand: &nbsp;<input type="text" ng-model="ITEM_BRAND" placeholder="Brand"/><br>
+		Price: &nbsp;<input type="number" ng-model="ITEM_PRICE" placeholder="Price"/><br>
+		Date: &nbsp;<input type="date" ng-model="DATE_IN" placeholder="Date"/><br>
+		
+		<button ng-click="StockIn()">Add Item</button><br>
 	</div>
 	<hr/>
-	<div ng-controller = "viewController">
-		<button ng-click = "getAllItems()">Get All</button>
-		<br/>{{allItems}}
-	</div>
 </body>
 </html>

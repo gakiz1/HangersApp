@@ -17,6 +17,7 @@ import org.json.JSONObject;
 
 import com.hangers.constants.DigitalDiningConstants;
 import com.hangers.data.DatabaseServices;
+import com.hangers.pojo.Item;
 
 @Path("/rest")
 public class TestService {
@@ -28,19 +29,18 @@ public class TestService {
 
 	@POST
 	@Path("/insertNewItem")
-	public String insertNewItem(String payload) {
+	public String insertNewItem(Item item) {
 		try {
-			JSONObject jsonObject = new JSONObject(payload);
-			HashMap<String, String> newItem = new HashMap<String, String>();
-			newItem.put(DigitalDiningConstants.ITEM_NUMBER,
-					jsonObject.optString(DigitalDiningConstants.ITEM_NUMBER));
-			newItem.put(DigitalDiningConstants.ITEM_NAME,
-					jsonObject.optString(DigitalDiningConstants.ITEM_NAME));
-			newItem.put(DigitalDiningConstants.ITEM_PRICE,
-					jsonObject.optString(DigitalDiningConstants.ITEM_PRICE));
-			newItem.put(DigitalDiningConstants.ITEM_CATEGORY,
-					jsonObject.optString(DigitalDiningConstants.ITEM_CATEGORY));
-			return DatabaseServices.insertToDB(newItem);
+			
+			if(item==null){
+				
+				return "item is null";
+			}else{
+				
+				return DatabaseServices.insertToDB(item);	
+			}
+			
+			
 		} catch (JSONException e) {
 			System.out.println("JSONException : " + e);
 			return "JSONException : " + e;

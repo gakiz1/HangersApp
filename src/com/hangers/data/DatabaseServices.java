@@ -1,5 +1,10 @@
 package com.hangers.data;
-
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.net.URISyntaxException;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -12,11 +17,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import com.hangers.constants.DigitalDiningConstants;
+import com.hangers.pojo.Item;
+
 
 public class DatabaseServices {
-	private static String createQuery = "CREATE TABLE USERS("
-			+ "USER_NAME CHAR(50) PRIMARY KEY NOT NULL,"
-			+ "PASSWORD CHAR(50)  NOT NULL)";
+	private final static String INSERT_QUERY="INSERT INTO STOCKIN(?,?,?,?,?,?)";
+	private static String createQuery = "DESC STOCKIN";
 	public static String CreateTable()throws ClassNotFoundException, URISyntaxException, SQLException {
 		
 		Connection connection = DatabaseConnectivity.getConnected();
@@ -30,24 +36,37 @@ public class DatabaseServices {
 			return "Failed to connect to db";
 	    }
 	}
-	public static String insertToDB(HashMap<String, String> newItem)
+	public static String insertToDB(Item item)
 			throws ClassNotFoundException, URISyntaxException, SQLException {
-		
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+	
 		Connection connection = DatabaseConnectivity.getConnected();
 		if (connection != null) {
 			Statement st = connection.createStatement();
-			String insertQuery = "INSERT INTO ITEMS VALUES('"
-					+ newItem.get(DigitalDiningConstants.ITEM_NUMBER)+"','"
-					+ newItem.get(DigitalDiningConstants.ITEM_NAME)+"','"
-					+ newItem.get(DigitalDiningConstants.ITEM_PRICE)+"','"
-					+ newItem.get(DigitalDiningConstants.ITEM_CATEGORY)+"')";
-			st.execute(insertQuery);
-			System.out.println("Query executed!");
+            String sqlQuery = INSERT_QUERY;
+            preparedStatement = connection.prepareStatement(sqlQuery);
+            preparedStatement.setString(1, item.getItemCode());
+            preparedStatement.setString(2, item.getItemCategory());
+            preparedStatement.setString(3, item.getItemBrand());
+            preparedStatement.setString(4, item.getSize());
+            preparedStatement.setFloat(5, item.getItemPrice());
+            preparedStatement.setDate(6, item.getDateIn());
+            
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet != null) {
+            	System.out.println("successfull!");
+              
+            } else {
+	            System.out.println("Failed!");
+            }
+
+			
 			connection.close();
 			return "Success";
 		}
 		else
-			return "Failed";
+			return "Connection Failed";
 
 	}
 	
