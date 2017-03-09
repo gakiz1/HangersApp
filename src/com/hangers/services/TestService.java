@@ -1,4 +1,4 @@
-package com.digital.services;
+package com.hangers.services;
 
 import java.net.URISyntaxException;
 import java.sql.SQLException;
@@ -15,8 +15,8 @@ import javax.ws.rs.core.MediaType;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.digital.constants.DigitalDiningConstants;
-import com.digital.data.DatabaseServices;
+import com.hangers.constants.DigitalDiningConstants;
+import com.hangers.data.DatabaseServices;
 
 @Path("/rest")
 public class TestService {
@@ -76,5 +76,11 @@ public class TestService {
 	public String deleteItem(@PathParam("itemNumber") String itemNumber) throws ClassNotFoundException, URISyntaxException, SQLException{
 		return DatabaseServices.deleteItem(itemNumber);
 	}
+	@POST
+	@Path("/createTable")
+	public String createTable(){
+		return DatabaseServices.CreateTable();
+	}
+	
 	
 }

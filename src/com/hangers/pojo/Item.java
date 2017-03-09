@@ -1,4 +1,4 @@
-package com.digital.pojo;
+package com.hangers.pojo;
 
 public class Item {
 	private String itemNumber;

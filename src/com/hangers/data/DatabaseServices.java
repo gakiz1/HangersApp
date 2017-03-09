@@ -1,4 +1,4 @@
-package com.digital.data;
+package com.hangers.data;
 
 import java.net.URISyntaxException;
 import java.sql.Connection;
@@ -11,15 +11,29 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.digital.constants.DigitalDiningConstants;
+import com.hangers.constants.DigitalDiningConstants;
 
 public class DatabaseServices {
-	private static String createQuery = "CREATE TABLE ITEMS("
-			+ "ITEM_NUMBER TEXT PRIMARY KEY NOT NULL,"
-			+ "ITEM_NAME TEXT NOT NULL,"
-			+ "ITEM_PRICE TEXT NOT NULL,"
-			+ "ITEM_CATEGORY TEXT NOT NULL);";
-	
+	private static String createQuery = "CREATE TABLE STOCKIN("
+			+ "ITEM_CODE CHAR(50) PRIMARY KEY NOT NULL,"
+			+ "ITEM_CATEGORY CHAR(50)  NOT NULL,"
+			+ "ITEM_BRAND CHAR(50) NOT NULL,"
+			+ "ITEM_SIZE CHAR(50) NOT NULL,"
+			+ "ITEM_PRICE FLOAT NOT NULL,"
+			+ "DATE_IN DATE NOT NULL);";
+	public static String CreateTable()throws ClassNotFoundException, URISyntaxException, SQLException {
+		
+		Connection connection = DatabaseConnectivity.getConnected();
+		if (connection != null) {
+			Statement st = connection.createStatement();
+			st.execute(createQuery);
+			System.out.println("Query executed!");
+			connection.close();
+			return "Success";
+		}else{
+			return "Failed";
+	    }
+	}
 	public static String insertToDB(HashMap<String, String> newItem)
 			throws ClassNotFoundException, URISyntaxException, SQLException {
 		

@@ -1,4 +1,4 @@
-package com.digital.constants;
+package com.hangers.constants;
 
 public class DigitalDiningConstants {
 	public static String ITEM_NUMBER = "itemNumber";
