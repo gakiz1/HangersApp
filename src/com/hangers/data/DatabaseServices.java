@@ -49,7 +49,7 @@ public class DatabaseServices {
             preparedStatement.setString(1, item.getItemCode());
             preparedStatement.setString(2, item.getItemCategory());
             preparedStatement.setString(3, item.getItemBrand());
-            preparedStatement.setString(4, item.getSize());
+            preparedStatement.setString(4, item.getItemSize());
             preparedStatement.setFloat(5, item.getItemPrice());
             preparedStatement.setDate(6, item.getDateIn());
             
