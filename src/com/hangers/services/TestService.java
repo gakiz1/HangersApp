@@ -82,6 +82,8 @@ public class TestService {
 		try{
 		return DatabaseServices.CreateTable();
 	}catch(Exception e){
+		return 
+				"Failed";
 	}
 	}
 	
