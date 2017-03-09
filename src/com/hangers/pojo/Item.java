@@ -8,7 +8,7 @@ public class Item {
 	private float itemPrice;
 	private String itemCategory;
 	private float sellingPrice;
-	private String size;
+	private String itemSize;
 	private Date dateIn;
 	private Date dateOut;
 	public String getItemCode() {
@@ -41,11 +41,12 @@ public class Item {
 	public void setSellingPrice(float sellingPrice) {
 		this.sellingPrice = sellingPrice;
 	}
-	public String getSize() {
-		return size;
+
+	public String getItemSize() {
+		return itemSize;
 	}
-	public void setSize(String size) {
-		this.size = size;
+	public void setItemSize(String itemSize) {
+		this.itemSize = itemSize;
 	}
 	public Date getDateIn() {
 		return dateIn;
@@ -60,7 +61,7 @@ public class Item {
 		this.dateOut = dateOut;
 	}
 	public Item(String itemCode, String itemBrand, float itemPrice,
-			String itemCategory, float sellingPrice, String size,
+			String itemCategory, float sellingPrice, String itemSize,
 			Date dateIn, Date dateOut) {
 		super();
 		this.itemCode = itemCode;
@@ -68,7 +69,7 @@ public class Item {
 		this.itemPrice = itemPrice;
 		this.itemCategory = itemCategory;
 		this.sellingPrice = sellingPrice;
-		this.size = size;
+		this.itemSize = itemSize;
 		this.dateIn = dateIn;
 		this.dateOut = dateOut;
 	}
@@ -80,7 +81,7 @@ public class Item {
 	public String toString() {
 		return "Item [itemCode=" + itemCode + ", itemBrand=" + itemBrand
 				+ ", itemPrice=" + itemPrice + ", itemCategory=" + itemCategory
-				+ ", sellingPrice=" + sellingPrice + ", size=" + size
+				+ ", sellingPrice=" + sellingPrice + ", itemSize=" + itemSize
 				+ ", dateIn=" + dateIn + ", dateOut=" + dateOut + "]";
 	}
 	
