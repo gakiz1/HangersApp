@@ -79,7 +79,11 @@ public class TestService {
 	@POST
 	@Path("/createTable")
 	public String createTable(){
+		try{
 		return DatabaseServices.CreateTable();
+	}catch(Exception e){
+	}
+	}
 	}
 	
 	
