@@ -35,7 +35,7 @@ public class DatabaseServices {
 			}
 			System.out.println("Query executed!");
 			connection.close();
-			return result;
+			return "DB : "+result;
 		}else{
 			return "Failed to connect to db";
 	    }
