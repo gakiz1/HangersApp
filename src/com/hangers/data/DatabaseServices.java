@@ -14,12 +14,13 @@ import org.json.JSONObject;
 import com.hangers.constants.DigitalDiningConstants;
 
 public class DatabaseServices {
-	private static String createQuery = "CREATE TABLE STOCKIN("
+	private static String createQuery = "CREATE TABLE STOCKOUT("
 			+ "ITEM_CODE CHAR(50) PRIMARY KEY NOT NULL,"
 			+ "ITEM_CATEGORY CHAR(50)  NOT NULL,"
 			+ "ITEM_BRAND CHAR(50) NOT NULL,"
 			+ "ITEM_SIZE CHAR(50) NOT NULL,"
 			+ "ITEM_PRICE FLOAT NOT NULL,"
+			+ "SELLING_PRICE FLOAT NOT NULL,"
 			+ "DATE_IN DATE NOT NULL);";
 	public static String CreateTable()throws ClassNotFoundException, URISyntaxException, SQLException {
 		
