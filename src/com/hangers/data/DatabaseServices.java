@@ -21,7 +21,7 @@ import com.hangers.pojo.Item;
 
 
 public class DatabaseServices {
-	private final static String INSERT_QUERY="INSERT INTO STOCKIN(?,?,?,?,?,?)";
+	private final static String INSERT_QUERY="INSERT INTO STOCKIN VALUES(?,?,?,?,?,?)";
 	private static String createQuery = "SELECT * FROM STOCKIN";
 	public static String CreateTable()throws ClassNotFoundException, URISyntaxException, SQLException {
 		
