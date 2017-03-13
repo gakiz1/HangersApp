@@ -1,4 +1,4 @@
-angular.module('HangersModule', [ 'ngRoute', 'ngTouch', 'ui.grid',
+angular.module('HangersModule', [ 'ngRoute', 'ui.grid',
                                 'ui.grid.selection' ])
 
 .config(function($routeProvider) {
