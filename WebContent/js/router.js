@@ -5,20 +5,17 @@ angular.module('HangersModule', [ 'ngRoute', 'ui.grid',
                 $routeProvider
 
                 .when('/', {
-                                templateUrl : 'index.html',
-                                controller : 'insertController'
+                                templateUrl : 'index.html'
+                                
 
                 }).when('/accounts', {
-                                templateUrl : 'accounts.html',
-                                controller : 'insertController'
+                                templateUrl : 'accounts.html'
 
                 }).when('/stockIn', {
-                                templateUrl : 'stockIn.html',
-                                controller : 'insertController'
+                                templateUrl : 'stockIn.html'
 
-                }).when('/#sell', {
-                                templateUrl : 'sell.html',
-                                controller : 'insertController'
+                }).when('/sell', {
+                                templateUrl : 'sell.html'
 
                 })
 
