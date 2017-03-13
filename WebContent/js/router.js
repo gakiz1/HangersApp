@@ -16,7 +16,7 @@ angular.module('HangersModule', [ 'ngRoute', 'ui.grid',
                                 templateUrl : 'stockIn.html',
                                 controller : 'insertController'
 
-                }).when('/sell', {
+                }).when('/#sell', {
                                 templateUrl : 'sell.html',
                                 controller : 'insertController'
 
