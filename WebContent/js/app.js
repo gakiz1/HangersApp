@@ -1,4 +1,4 @@
-angular.module('testModule1', [ 'ngRoute'])
+/*angular.module('testModule1', [ 'ngRoute'])
 
 .config(function($routeProvider) {
                 $routeProvider
@@ -19,4 +19,21 @@ angular.module('testModule1', [ 'ngRoute'])
                 .otherwise({
                                 redirectTo : '/'
                 });
-});
+});*/
+
+angular.module("myApp",['ngRoute'])
+	   .config(function($routeProvider){
+	   $routeProvider
+	   .when("/",{
+	   		templateUrl : "1.html"
+	   })
+	   .when("/2",{
+	   		templateUrl : "2.html"
+	   })
+	   .when("/3",{
+	   		templateUrl : "3.html"
+	   })
+	   .otherwise({
+	   		redirectTo : "/"
+	   });
+	   });
