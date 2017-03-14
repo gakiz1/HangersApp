@@ -25,13 +25,13 @@ angular.module("myApp",['ngRoute'])
 	   .config(function($routeProvider){
 	   $routeProvider
 	   .when("/",{
-	   		templateUrl : "1.html"
+	   		templateUrl : "pages/1.html"
 	   })
 	   .when("/2",{
-	   		templateUrl : "2.html"
+	   		templateUrl : "pages/2.html"
 	   })
 	   .when("/3",{
-	   		templateUrl : "3.html"
+	   		templateUrl : "pages/3.html"
 	   })
 	   .otherwise({
 	   		redirectTo : "/"
