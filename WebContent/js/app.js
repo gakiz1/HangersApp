@@ -27,10 +27,10 @@ angular.module("myApp",['ngRoute'])
 	   .when("/",{
 	   		templateUrl : "pages/1.html"
 	   })
-	   .when("/2",{
+	   .when("/index1.html#2",{
 	   		templateUrl : "pages/2.html"
 	   })
-	   .when("/3",{
+	   .when("/index1.html#3",{
 	   		templateUrl : "pages/3.html"
 	   })
 	   .otherwise({
