@@ -1,4 +1,4 @@
-angular.module('testModule', [ 'ngRoute'])
+angular.module('testModule1', [ 'ngRoute'])
 
 .config(function($routeProvider) {
                 $routeProvider
