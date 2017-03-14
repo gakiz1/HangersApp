@@ -22,13 +22,10 @@
   
 </head>
 
-<body>
- <a href="#2">2</a>
- <a href="#3">3</a>
- 
+<body ng-controller="myController">
  
  <hr/>
- <div id="blogin">
+ <div id="blogin" ng-if="divEnabled==false">
 	<center><div  id="login">
 				<h2>Login</h2>
 				<form name="f1">
@@ -43,7 +40,11 @@
 			</div>
 	</center>
  </div>
-	<hr/>
+ <div id="home" ng-if="divEnabled==true">
+	 <a href="#2">2</a>
+ 	 <a href="#3">3</a> 	
+ </div>
+ <hr/>
 <div ng-view></div>	
 </body>	
 </html>
