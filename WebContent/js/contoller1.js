@@ -1,4 +1,4 @@
-angular.module("testModule",[])
+angular.module("testModule1",[])
 		.controller("insertController",function($scope, $http){
 		$scope.divEnabled = false;
 			$scope.addUserlog=function(){
