@@ -5,11 +5,11 @@ angular.module('testModule', [ 'ngRoute'])
 
              .when('/2', {
                                 templateUrl : '2.html',
-                                controller : 'insertController'
+                               
 
                 }).when('/3', {
                                 templateUrl : '3.html',
-                                controller : 'insertController'
+                               
 
                 })
 
