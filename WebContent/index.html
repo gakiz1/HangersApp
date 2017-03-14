@@ -17,7 +17,7 @@
 <script
                 src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 		<body >
-		<div ng-if="divEnabled==false" id="blogin" style="background-color : grey;padding-top: 18%;text-align: center;max-width: 100%;padding-bottom: 18%;">
+		<div  ng-controller="insertController" ng-if="divEnabled==false" id="blogin" style="background-color : grey;padding-top: 18%;text-align: center;max-width: 100%;padding-bottom: 18%;">
 		<center><div  id="login" style="background-color: violet;width: 50%;">
 			<h2>Login</h2>
 			<form name="f1">
@@ -32,7 +32,7 @@
 		</div></center>
 	</div>
 	  
-	<div id="Home" ng-if="divEnabled==true">
+	<div ng-controller="insertController" id="Home" ng-if="divEnabled==true">
 		<div class="navbar navbar-inverse navbar-static-top" role="navigation">
 
                 <div class="navbar-header">
