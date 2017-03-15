@@ -1,4 +1,4 @@
-angular.module("myApp",['ngRoute'])
+angular.module("myApp1",['ngRoute'])
 	   .config(function($routeProvider){
 	   					$routeProvider
 	   								.when("/2",{
