@@ -12,6 +12,21 @@
 	 <a href="#2">Test2</a>
  	 <a href="#3">Test3</a> 
 	 <hr/>
+	 <div   id="blogin" style="background-color : grey;padding-top: 18%;text-align: center;max-width: 100%;padding-bottom: 18%;">
+		<center><div  id="login" style="background-color: violet;width: 50%;">
+			<h2>Login</h2>
+			<form name="f1">
+				USERNAME:<input type="text" ng-model="name" >
+				<br>
+				<br>
+				PASSWORD:<input type="password" ng-model="pass" > 
+				<br>
+				<input type="button" value="submit" class="btn btn-primary" ng-click="addUserlog()"/>
+				<br>
+			</form>
+		</div></center>
+	</div>
+	 <hr/>
 	 <div ng-view></div>
 </body>	
 </html>
