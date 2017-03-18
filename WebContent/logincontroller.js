@@ -9,7 +9,7 @@
         .controller('logincontroller', logincontroller)
         .directive('passwordValidate',PasswordValidate);
 
-    loginController.$inject = ['$location'];
+   
     function logincontroller($location) {
        var ym=this;
        ym.login=Login;
