@@ -1,10 +1,10 @@
 angular.module("myApp",['ngRoute'])
 	   .config(function($routeProvider){
 	   					$routeProvider
-	   								.when("/2",{
+	   								.when("/test2",{
 	   											templateUrl : "pages/2.html"
 	   									  })
-	   								.when("/3",{
+	   								.when("/test3",{
 	   											templateUrl : "pages/3.html"
 	   									  })
 	   								.otherwise({
