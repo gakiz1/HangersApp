@@ -8,18 +8,13 @@
 <script src="js/Controller.js"></script>
 
 </head>
-<body ng-app="digitalDining" ng-controller="insertController">
+<body ng-app="myApp">
 	<div>
-		<input type="text" ng-model="ITEM_NUMBER" placeholder="itemID"/>
-		<input type="text" ng-model="ITEM_NAME" placeholder="itemName"/>
-		<input type="text" ng-model="ITEM_PRICE" placeholder="itemPrice"/>
-		<input type="text" ng-model="ITEM_CATEGORY" placeholder="itemCategory"/>
-		<button ng-click="insert()">Add New Item</button>
+		<center>
+			<a href= "#somdas">Somdas</a>
+			<a href= "#ganesh">Ganesh</a>
+		</center>
 	</div>
-	<hr/>
-	<div ng-controller = "viewController">
-		<button ng-click = "getAllItems()">Get All</button>
-		<br/>{{allItems}}
-	</div>
+	<div ng-view></div>
 </body>
 </html>
