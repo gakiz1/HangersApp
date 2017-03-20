@@ -1,7 +1,7 @@
-var myApp = angular.module("myApp",['']) ;
-       myApp.controller('insertController',function($scope){
-			$scope.name = " Somdas ";
-		});
-	myApp.controller('viewController', function($scope){
+       var app = angular.module('myApp', []);
+	app.controller('insertController', function($scope) {
+    $scope.name = "John";
+});
+	app.controller('viewController', function($scope){
 		   	$scope.name = " Ganesh ";
 	   });
