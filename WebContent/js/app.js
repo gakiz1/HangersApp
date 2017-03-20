@@ -14,7 +14,7 @@ angular.module('myApp',['ngRoute'])
           controller : 'viewController'
         })
         .otherwise({
-          redirectTo : "/"
+          redirectTo : '/'
         });
        });
 
