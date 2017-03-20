@@ -2,7 +2,8 @@ angular.module("myApp",['ngRoute'])
        .config(function($routeProvider){
         $routeProvider
         .when('/',{
-              templateUrl : 'home.html'
+              templateUrl : 'home.html',
+                controller : 'insertController'
         })
         .when('/somdas',{
           templateUrl : 'somdas.html',
