@@ -3,7 +3,7 @@
 <head>
   <script src="angular.js"></script>
   <script src="angular-route.js"></script>
-  <script src="js/app.js"></script>
+  <!--<script src="js/app.js"></script>-->
   <script src="js/controller.js"></script>
  </head>
 
@@ -12,6 +12,22 @@
  	 <a href="#test3">Test3</a>
 	 <hr/>
 	 <div ng-view></div>
+
+<script>
+var app = angular.module("myApp", ["ngRoute"]);
+app.config(function($routeProvider) {
+    $routeProvider
+    .when("/", {
+        templateUrl : "2.htm1"
+    })
+    .when("/test2", {
+        templateUrl : "2.html"
+    })
+    .when("/test3", {
+        templateUrl : "3.html"
+    })    
+});
+</script>
   </body>	
 </html>
  
