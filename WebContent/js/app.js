@@ -9,7 +9,7 @@ angular.module('myApp',['ngRoute'])
           templateUrl : 'somdas.html',
           controller : 'insertController'
         })
-        .when("/ganesh",{
+        .when('/ganesh',{
           templateUrl : 'ganesh.html',
           controller : 'viewController'
         })
