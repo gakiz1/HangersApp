@@ -1,7 +1,7 @@
-angular.module("myApp",['ngRoute']) 
-       .controller('insertController',function($scope, $http){
+angular.module("myApp",['']) 
+       .controller('insertController',function($scope){
 			$scope.name = " Somdas ";
 		})
-	.controller('viewController', function($scope, $http){
+	.controller('viewController', function($scope){
 		   	$scope.name = " Ganesh ";
 	   });
