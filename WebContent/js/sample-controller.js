@@ -1,9 +1,8 @@
 (function() {
     'use strict';
 
-    angular
-        .module('myApp')
-        .factory('sampleController', sampleController);
+    angular.module('myApp')
+        	.controller('sampleController', sampleController);
 
     function sampleController() { 
     	console.log("Hello World");
