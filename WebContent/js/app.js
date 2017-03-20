@@ -6,11 +6,11 @@ angular.module("myApp",['ngRoute'])
         })
         .when('/somdas',{
           templateUrl : 'somdas.html',
-          controller : insertController
+          controller : 'insertController'
         })
         .when("/ganesh",{
           templateUrl : 'ganesh.html',
-          controller : viewController
+          controller : 'viewController'
         })
         .otherwise({
           redirectTo : "/"
