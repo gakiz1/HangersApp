@@ -1,4 +1,4 @@
-angular.module("myApp",[])
+angular.module("myApp1",[])
 		.controller("insertController",function($scope, $http){
 			$scope.name = " Somdas ";
 		})
