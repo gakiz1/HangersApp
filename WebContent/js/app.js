@@ -12,5 +12,9 @@ app.config(function($routeProvider) {
     })
      .when("/accounts", {
         templateUrl : "pages/accounts.html"
-    })     
+    }) 
+     .otherwise({
+          redirectTo : '/'
+    });
+        
 });
