@@ -7,10 +7,7 @@ background-repeat: no-repeat;
  }
  .footer 
 {
-position: relative;
-margin-top: -150px; /* negative value of footer height */
-height: 150px;
+height:22px;
 clear:both;
-padding-top:20px;
-color:red;
+color:white;
 } 
