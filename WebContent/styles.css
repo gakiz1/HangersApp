@@ -16,7 +16,7 @@ color:white;
 }
 
 #login h2 {
-                background-color: #333;
+                background-color: black;
                 -webkit-border-radius: 20px 20px 0 0;
                 -moz-border-radius: 20px 20px 0 0;
                 border-radius: 20px 20px 0 0;
@@ -30,7 +30,7 @@ color:white;
 }
 
 #login fieldset {
-                background-color: black ;
+                background-color: #777 ;
                 -webkit-border-radius: 0 0 20px 20px;
                 -moz-border-radius: 0 0 20px 20px;
                 border-radius: 0 0 20px 20px;
@@ -38,7 +38,7 @@ color:white;
 }
 
 #login fieldset p {
-                color: black;
+                color: #777;
                 margin-bottom: 14px;
 }
 
