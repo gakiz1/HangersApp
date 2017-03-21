@@ -1,50 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport"
-	content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <script src="angular.js"></script>
+  <script src="angular-route.js"></script>
+  <script src="js/app.js"></script> 
+  <script src="js/sample-controller.js"></script>
+ </head>
 
-<meta charset="UTF-8">
-<title>Hangers</title>
-	<script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-route.js"></script>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular-cookies.js"></script>
-
-	<script
-		src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.10.0.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-	
-
-	<script src="app.js"></script>
-
-	<script src="logincontroller.js"></script>
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-
-</head>
-
-	<h1 class="title">Hangers</h1>
-	  <div style="color: black" class="navbar-collapse collapse">
-                                <ul class="nav navbar-nav">
-                                                <li><a href="#1">ADD STOCK</a></li>
-                                                <li><a href="#2">SELL ITEM</a></li>
-                                                <li><a href="#3">ACCOUNTS</a></li>
-                                </ul>
-                </div> 
-
-<body data-ng-app="hangers">
-	<div data-ng-view></div>
-
-
-
-
-</body>
-<div class="bar bar-footer bar-positive"></div>
+ <body ng-app="myApp">
+	 <a href="#test2">Test2</a>
+ 	 <a href="#test3">Test3</a>
+	 <hr/>
+	 <div ng-view></div>
+  </body>	
 </html>
