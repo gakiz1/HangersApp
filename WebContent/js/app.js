@@ -2,7 +2,7 @@ var app = angular.module("myApp", ["ngRoute"]);
 app.config(function($routeProvider) {
     $routeProvider
     .when("/", {
-        templateUrl : "login.htm1"
+        templateUrl : "login.html"
         
     })
     .when("/stockIn", {
