@@ -3,21 +3,17 @@
 <div id="login">
 <h2>ADD STOCK</h2>
 <center style="background-color: rgba(119, 119, 119, 0.7); height: 121px; padding-top: 17px; border-radius: 0px 0px 20px 20px;    height: 382px;">
-<br> <font color="white">ITEM CODE</font> &nbsp; &nbsp;
-<input type="text" style="border: 1px solid #777" ng-model="itemCode">
-<br> <br> <font color="white">ITEM TYPE</font> &nbsp;&nbsp;
- &nbsp;<input type="text" style="border: 1px solid #777" ng-model="type"> 
- <br> <br><font color="white">SIZE</font> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-<input type="text" style="border: 1px solid #777" ng-model="size">
-<br> <br> <font color="white">BRAND</font> &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;
- &nbsp;<input type="text" style="border: 1px solid #777" ng-model="brand"> <br> <br>
- <font color="white">QUANTITY</font> &nbsp; &nbsp;
-<input type="text" style="border: 1px solid #777" ng-model="quantity">
-<br> <br> <font color="white">DATE</font> &nbsp;&nbsp; &nbsp; &nbsp;
- &nbsp;<input type="date" style="border: 1px solid #777" ng-model="date" min="2000-01-02"> <br> <br>
- 
-<button " value="submit" class="btn btn-default "ng-click="login()" style="background-color: #777">ADD</button>
- </center>
+<br> 
+<table>
+<td><tr><font color="white">ITEM CODE</font></tr><input type="text" style="border: 1px solid #777" ng-model="itemCode"></td>
+<td><tr><font color="white">ITEM TYPE</font></tr><input type="text" style="border: 1px solid #777" ng-model="type"></td>
+<td><tr><font color="white">BRAND</font></tr><input type="text" style="border: 1px solid #777" ng-model="brand"></td>
+<td><tr><font color="white">QUANTITY</font></tr><input type="number" style="border: 1px solid #777" ng-model="quantity"></td>
+<td><tr><font color="white">SIZE</font></tr><input type="text" style="border: 1px solid #777" ng-model="size"></td>
+<td><tr><font color="white">DATE</font></tr><input type="date" style="border: 1px solid #777" ng-model="date" min="2000-01-02"></td>
+</table>
+<center><button " value="submit" class="btn btn-default "ng-click="login()" style="background-color: #777">ADD</button></center>
+</center>
 </div>
 </center>
 </div>
