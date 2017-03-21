@@ -2,4 +2,6 @@
 background-image: url('/images/h2.png');
 background-size: 100% 100%;
 background-repeat: no-repeat;
+  min-height: 720px;
+  min-width:1024px;
 }
