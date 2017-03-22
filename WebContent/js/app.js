@@ -17,6 +17,14 @@ app.config(function($routeProvider) {
         templateUrl : "pages/accounts.html"
         
     }) 
+    .when("/remaining", {
+        templateUrl : "pages/remaining.html"
+        
+    }) 
+    .when("/soldItems", {
+        templateUrl : "pages/soldItems.html"
+        
+    }) 
      .otherwise({
           redirectTo : '/'
     });
