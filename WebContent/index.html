@@ -11,23 +11,12 @@
                 href="bootstrap.css">
 <link rel="stylesheet"
                 href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
- <link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">               
 <script
                 src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script
                 src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   
-  <script>
-function myFunction() {
-    var x = document.getElementById("demo");
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
-</script>
+  
  </head>
 
  <body ng-app="myApp" style="background-color:balck;">
@@ -41,18 +30,10 @@ function myFunction() {
                                 <ul class="nav navbar-nav" style="width:1060px;">
                                                
                                                 <li><a href="#stockIn">ADD STOCK</a></li>
-                                                <li><div class="w3-dropdown-click">
-      <button class="w3-button" onclick="myFunction()">
-        STOCK <i class="fa fa-caret-down"></i>
-      </button>
-      <div id="demo" class="w3-dropdown-content w3-bar-block w3-card-2">
-        <a href="#/" class="w3-bar-item w3-button">ADD STOCK</a>
-        <a href="#/" class="w3-bar-item w3-button">REMAINING STOCK</a>
-        <a href="#/" class="w3-bar-item w3-button">SOLD STOCK</a>
-      </div>
-    </div></li>
                                                 <li><a href="#stockOut">SELL</a></li>
                                                 <li><a href="#accounts">ACCOUNTS</a></li>
+                                                <li><a href="#accounts">STOCK REMAINING</a></li>
+                                                <li><a href="#accounts">SOLD ITEMS</a></li>
                                                 <li style="padding-left: 64%;"><a href="#/">LOGOUT</a></li>
                                                 
           
