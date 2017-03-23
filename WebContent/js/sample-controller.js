@@ -3,7 +3,7 @@
 
     angular.module('myApp')
         	.controller('sampleController', sampleController)
-        	..controller('loginController', loginController);
+        	.controller('loginController', loginController);
 
     function sampleController($scope,$http) { 
     	console.log("Hello World");
