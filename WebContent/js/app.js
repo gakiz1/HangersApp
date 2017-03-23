@@ -18,7 +18,7 @@ app.config(function($routeProvider) {
     })
      .when("/accounts", {
         templateUrl : "pages/accounts.html",
-        controller  : "accountsController"
+        controller  : "accountController"
         
     }) 
     .when("/remaining", {
