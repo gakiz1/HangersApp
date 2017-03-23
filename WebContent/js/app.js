@@ -13,12 +13,12 @@ app.config(function($routeProvider) {
     })
     .when("/stockOut", {
         templateUrl : "pages/stockOut.html",
-        controller  : "sampleController"
+        controller  : "stockOutController"
         
     })
      .when("/accounts", {
         templateUrl : "pages/accounts.html",
-        controller  : "sampleController"
+        controller  : "accountsController"
         
     }) 
     .when("/remaining", {
