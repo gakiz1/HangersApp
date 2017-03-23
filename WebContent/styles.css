@@ -87,3 +87,7 @@ input {
                 -webkit-appearance: none;
                 border-color: black; 
 }
+#message {
+    font-size: x-large;
+    color: red;
+}
