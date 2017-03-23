@@ -8,7 +8,7 @@ app.config(function($routeProvider) {
     })
     .when("/stockIn", {
         templateUrl : "pages/stockIn.html",
-        controller  : "sampleController"
+        controller  : "stockInController"
         
     })
     .when("/stockOut", {

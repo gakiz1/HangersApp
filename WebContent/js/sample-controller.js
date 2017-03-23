@@ -3,15 +3,16 @@
 
     angular.module('myApp')
         	.controller('sampleController', sampleController)
-        	.controller('loginController', loginController);
+        	.controller('loginController', loginController)
+        	.controller('stockInController', stockInController)
+        	.controller('stockOutController', stockOutController)
+        	.controller('accountController', accountController);
 
     function sampleController($scope,$http) { 
     	console.log("Hello World");
-    	
     	$scope.message="Welcome";
-    	
-    	
     }
+    
     function loginController($scope,$http){
        $scope.checkCredentials=function(){
         if (($scope.name == null) ||  ($scope.password == null)) {
@@ -21,9 +22,18 @@
             }else{
               $scope.message="Wrong Credentials";
             }
-            
-       
        }
+    }
+    
+     function stockInController($scope,$http) { 
+    	
+    	$scope.addStock=function(){
+    	if (($scope.itemCode == null) ||  ($scope.itemType == null) ||($scope.brand == null) ||  ($scope.quantity == null) ||($scope.size == null) ||($scope.unitPrice == null) || ($scope.date== null)) {
+           window.alert("Please fill the fields !!!!");
+            } else{
+              $scope.message="Successfully Added the stock";
+            }
+    	}
     }
     
 })();
