@@ -16,9 +16,12 @@
        $scope.checkCredentials=function(){
         if (($scope.name == null) ||  ($scope.password == null)) {
            window.alert("Please fill the fields !!!!");
-            } else if(($scope.name == hangers ) || ($scope.password == Admin)){
-              $scope.message="Welcome Admin";
+            } else if(($scope.name == "hangers" ) || ($scope.password == "Admin")){
+              $scope.message="Welcome Admin!!!";
+            }else{
+              $scope.message="Wrong Credentials";
             }
+            
        
        }
     }
