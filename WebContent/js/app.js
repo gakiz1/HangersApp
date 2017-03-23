@@ -3,7 +3,7 @@ app.config(function($routeProvider) {
     $routeProvider
     .when("/", {
         templateUrl : "login.html",
-        controller  : "sampleController"
+        controller  : "loginController"
         
     })
     .when("/stockIn", {
