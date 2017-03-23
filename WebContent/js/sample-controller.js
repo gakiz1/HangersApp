@@ -4,9 +4,9 @@
     angular.module('myApp')
         	.controller('sampleController', sampleController)
         	.controller('loginController', loginController)
-        	.controller('stockInController', stockInController);
-        	/*.controller('stockOutController', stockOutController)
-        	.controller('accountController', accountController);*/
+        	.controller('stockInController', stockInController)
+        	.controller('stockOutController', stockOutController)
+        	.controller('accountController', accountController);
 
     function sampleController($scope,$http) { 
     	console.log("Hello World");
@@ -32,6 +32,28 @@
            window.alert("Please fill the fields !!!!");
             } else{
               $scope.message="Successfully Added the stock";
+            }
+    	}
+    }
+    
+     function stockOutController($scope,$http) { 
+    	
+    	$scope.sell=function(){
+    	if (($scope.itemCode == null) || ($scope.quantity == null) ||($scope.sellingPrice == null) || ($scope.date== null)){
+           window.alert("Please fill the fields !!!!");
+            } else{
+              $scope.message="Sold Out!!!";
+            }
+    	}
+    }
+    
+     function accountController($scope,$http) { 
+    	
+    	$scope.accounts=function(){
+    	if (($scope.fromDate == null) || ($scope.toDate== null)) {
+           window.alert("Please fill the fields !!!!");
+            } else{
+              $scope.message="Accout Details";
             }
     	}
     }
