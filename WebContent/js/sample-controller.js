@@ -4,9 +4,9 @@
     angular.module('myApp')
         	.controller('sampleController', sampleController)
         	.controller('loginController', loginController)
-        	.controller('stockInController', stockInController)
-        	.controller('stockOutController', stockOutController)
-        	.controller('accountController', accountController);
+        	.controller('stockInController', stockInController);
+        	/*.controller('stockOutController', stockOutController)
+        	.controller('accountController', accountController);*/
 
     function sampleController($scope,$http) { 
     	console.log("Hello World");
