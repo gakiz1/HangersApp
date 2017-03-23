@@ -1,5 +1,6 @@
 #view{
- background-color:gold;
+  background-image: url('/images/h7.jpg');
+ 
   min-height:570px;
   min-width:1024px;
  }
