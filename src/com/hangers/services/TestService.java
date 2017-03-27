@@ -67,7 +67,7 @@ public class TestService {
 		return DatabaseServices.deleteItem(itemNumber);
 	}
 	@GET
-	@Path("/createTable")
+	@Path("/dropTable")
 	public String createTable(){
 		try{
 		return DatabaseServices.CreateTable();
