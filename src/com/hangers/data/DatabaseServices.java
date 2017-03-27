@@ -21,8 +21,10 @@ import com.hangers.pojo.Item;
 
 
 public class DatabaseServices {
-	private final static String INSERT_QUERY="INSERT INTO STOCKIN VALUES(?,?,?,?,?,?)";
+	private final static String ADD_STOCK_QUERY="INSERT INTO STOCKIN VALUES(?,?,?,?,?,?,?)";
 	private static String dropQuery = "DESC  table STOCKIN";
+	
+	
 	public static String CreateTable()throws ClassNotFoundException, URISyntaxException, SQLException {
 		
 		Connection connection = DatabaseConnectivity.getConnected();
@@ -37,34 +39,36 @@ public class DatabaseServices {
 			return "Failed to connect to db";
 	    }
 	}
-	public static String insertToDB(Item item)
+	public static String addStock(Item item)
 			throws ClassNotFoundException, URISyntaxException, SQLException {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
-	
+        String result;
 		Connection connection = DatabaseConnectivity.getConnected();
 		if (connection != null) {
 			Statement st = connection.createStatement();
-            String sqlQuery = INSERT_QUERY;
+            String sqlQuery = ADD_STOCK_QUERY;
             preparedStatement = connection.prepareStatement(sqlQuery);
             preparedStatement.setString(1, item.getItemCode());
-            preparedStatement.setString(2, item.getItemCategory());
-            preparedStatement.setString(3, item.getItemBrand());
-            preparedStatement.setString(4, item.getItemSize());
-            preparedStatement.setFloat(5, item.getItemPrice());
+            preparedStatement.setString(2, item.getItemType());
+            preparedStatement.setString(3, item.getBrand());
+            preparedStatement.setInt(4, item.getQuantity());
+            preparedStatement.setFloat(5, item.getPriceIn());
             preparedStatement.setDate(6, item.getDateIn());
             
             resultSet = preparedStatement.executeQuery();
             if (resultSet != null) {
             	System.out.println("successfull!");
+            	 result="successfully Added the stock";
               
             } else {
 	            System.out.println("Failed!");
+	             result="Failed.. ";
             }
 
 			
 			connection.close();
-			return "Success";
+			return result;
 		}
 		else
 			return "Connection Failed";

@@ -28,7 +28,7 @@ public class TestService {
 	}
 
 	@POST
-	@Path("/insertNewItem")
+	@Path("/addStock")
 	public String insertNewItem(Item item) {
 		try {
 			
@@ -37,7 +37,7 @@ public class TestService {
 				return "item is null";
 			}else{
 				
-				return DatabaseServices.insertToDB(item);	
+				return DatabaseServices.addStock(item);	
 			}
 			
 			

@@ -31,6 +31,22 @@
     	if (($scope.itemCode == null) ||  ($scope.itemType == null) ||($scope.brand == null) ||  ($scope.quantity == null) ||($scope.size == null) ||($scope.unitPrice == null) || ($scope.date== null)) {
            window.alert("Please fill the fields !!!!");
             } else{
+            var payload = {
+						"itemCode"   : $scope.itemCode,
+						"itemType"	 : $scope.itemType,
+						"brand"      : $scope.brand,
+						"size"       : $scope.size,
+						"quantity"   : $scope.quantity,
+						"priceIn"    : $scope.unitprice,
+						"dateIn"     : $scope.date
+				};
+				$http.post("https://hangers.herokuapp.com/service/rest/addStock", payload)
+					.success(function(response){
+						console.log(response);
+					})
+					.error(function(response){
+						console.log("Error : "+response);
+					});
               $scope.message="Successfully Added the stock";
             }
     	}
