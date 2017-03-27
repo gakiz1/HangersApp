@@ -22,7 +22,7 @@ import com.hangers.pojo.Item;
 
 public class DatabaseServices {
 	private final static String INSERT_QUERY="INSERT INTO STOCKIN VALUES(?,?,?,?,?,?)";
-	private static String dropQuery = "DESC STOCKIN";
+	private static String dropQuery = "DESC  table STOCKIN";
 	public static String CreateTable()throws ClassNotFoundException, URISyntaxException, SQLException {
 		
 		Connection connection = DatabaseConnectivity.getConnected();
