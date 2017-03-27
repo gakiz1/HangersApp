@@ -53,8 +53,9 @@ public class DatabaseServices {
             preparedStatement.setString(2, item.getItemType());
             preparedStatement.setString(3, item.getBrand());
             preparedStatement.setInt(4, item.getQuantity());
-            preparedStatement.setFloat(5, item.getPriceIn());
-            preparedStatement.setDate(6, item.getDateIn());
+            preparedStatement.setString(5, item.getSize());
+            preparedStatement.setFloat(6, item.getPriceIn());
+            preparedStatement.setDate(7, item.getDateIn());
             
             resultSet = preparedStatement.executeQuery();
             if (resultSet != null) {
