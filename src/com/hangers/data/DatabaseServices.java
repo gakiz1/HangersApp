@@ -81,14 +81,13 @@ public class DatabaseServices {
 		JSONArray jsonArray = new JSONArray();
 		if (connection != null) {
 			Statement st = connection.createStatement();
-			String query = "SELECT * FROM ITEMS";
+			String query = "SELECT * FROM STOCKIN";
 			ResultSet rs = st.executeQuery(query);
 			while(rs.next()){
 				JSONObject jsonObject = new JSONObject();
-				jsonObject.put(DigitalDiningConstants.ITEM_NUMBER, rs.getString(1));
-				jsonObject.put(DigitalDiningConstants.ITEM_NAME, rs.getString(2));
-				jsonObject.put(DigitalDiningConstants.ITEM_PRICE, rs.getString(3));
-				jsonObject.put(DigitalDiningConstants.ITEM_CATEGORY, rs.getString(4));
+				jsonObject.put("item code", rs.getString(1));
+				jsonObject.put("Item type", rs.getString(2));
+				
 				jsonArray.put(jsonObject);
 			}
 		}
