@@ -87,6 +87,11 @@ public class DatabaseServices {
 				JSONObject jsonObject = new JSONObject();
 				jsonObject.put("item code", rs.getString(1));
 				jsonObject.put("Item type", rs.getString(2));
+				jsonObject.put("brand", rs.getString(3));
+				jsonObject.put("quantity", rs.getString(4));
+				jsonObject.put("size", rs.getString(5));
+				jsonObject.put("price In", rs.getString(6));
+				jsonObject.put("date In", rs.getString(7));
 				
 				jsonArray.put(jsonObject);
 			}
