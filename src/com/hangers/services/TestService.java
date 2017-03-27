@@ -36,8 +36,8 @@ public class TestService {
 				
 				return "item is null";
 			}else{
-				
-				return DatabaseServices.addStock(item);	
+				String message=DatabaseServices.addStock(item);
+				return 	message;
 			}
 			
 			

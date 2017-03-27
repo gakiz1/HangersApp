@@ -43,11 +43,13 @@
 				$http.post("https://hangers.herokuapp.com/service/rest/addStock", payload)
 					.success(function(response){
 						console.log(response);
+						$scope.message=response;
 					})
 					.error(function(response){
 						console.log("Error : "+response);
+						$scope.message=response;
 					});
-              $scope.message="Successfully Added the stock";
+              
             }
     	}
     }
