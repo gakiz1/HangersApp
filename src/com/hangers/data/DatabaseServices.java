@@ -70,7 +70,7 @@ public class DatabaseServices {
             preparedStatement.setString(3, item.getBrand());
             preparedStatement.setInt(4, item.getQuantity());
             preparedStatement.setString(5, item.getSize());
-            preparedStatement.setFloat(6, item.getPriceIn());
+            preparedStatement.setFloat(6, item.getPriceOut());
             preparedStatement.setDate(7, item.getDateIn());
             
             int ms =preparedStatement.executeUpdate();
