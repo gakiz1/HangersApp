@@ -67,12 +67,14 @@
 				$http.post("https://hangers.herokuapp.com/service/rest/sell", payload)
 					.success(function(response){
 						console.log(response);
+						    $scope.message="Sold Out!!!";
 					})
 					.error(function(response){
 						console.log("Error : "+response);
+						    $scope.message="Failed!!!";
 					});
             
-              $scope.message="Sold Out!!!";
+          
             }
     	}
     }
@@ -101,5 +103,30 @@
             }
     	}
     }
+    
+    $scope.gridOptions = {
+                     enableRowSelection : true,
+                    enableSelectAll : true,
+                    selectionRowHeaderWidth : 35,
+					rowHeight : 35,
+					 showGridFooter : true,
+					onRegisterApi : function(gridApi) {
+					$scope.gridApi = gridApi;
+						 gridApi.selection.on
+						.rowSelectionChanged(
+										 $scope,
+											 function(rows) {
+													 $scope.mySelections = gridApi.selection
+																		 .getSelectedRows();
+														$scope.cusName = rows.entity.customerName;
+
+															console
+															.log(rows.entity.customerName);
+
+                                                                                                                                                                                });
+
+                                                                                                }
+                                                                                };
+    
     
 })();
