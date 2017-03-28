@@ -24,7 +24,7 @@ import com.hangers.pojo.Item;
 public class DatabaseServices {
 	private final static String ADD_STOCK_QUERY="INSERT INTO STOCKIN VALUES(?,?,?,?,?,?,?)";
 	private final static String ADD_STOCK_TO_MASTER_QUERY="INSERT INTO MASTER VALUES(?,?,?,?,?,?,?)";
-	private static String dropQuery = "DESC  table STOCKIN";
+	private static String dropQuery = "DROP table STOCKOUT";
 	private static String DECREMENT_QUANTITY_QUERY ="UPDATE STOCKIN SET QUANTITY=QUANTITY - ? WHERE ITEM_CODE=? ";
 	private final static String ADD_SELL_QUERY="INSERT INTO STOCKOUT VALUES(?,?,?,?,?)";
 	private final static String ACCOUNTS_QUERY1="SELECT (SOUT.QUANTITY * SOUT.PRICE_OUT)-(SIN.PRICE_IN * SOUT.QUANTITY) AS PROFIT FROM STOCKIN SIN INNER JOIN STOCKOUT SOUT ON SOUT.ITEM_CODE = SIN.ITEM_CODE WHERE SOUT.DATE_OUT  BETWEEN (?,?);";
