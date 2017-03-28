@@ -47,6 +47,25 @@ public class TestService {
 		} 
 	}
 	
+	@POST
+	@Path("/sell")
+	public String sellItem(Item item) {
+		try {
+			
+			if(item==null){
+				
+				return "item is null";
+			}else{
+				String message=DatabaseServices.sell(item);
+				return 	message;
+			}
+			
+			
+		} catch (Exception e) {
+			System.out.println("JSONException : " + e);
+			return "JSONException : " + e;
+		} 
+	}
 	@GET
 	@Path("/getAll")
 	@Produces(MediaType.TEXT_PLAIN)

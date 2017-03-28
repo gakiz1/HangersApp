@@ -64,7 +64,7 @@
 						"priceOut"   : $scope.sellingPrice,
 						"dateOut"    : $scope.date
 				};
-				$http.post("https://hangers.herokuapp.com/service/rest/addStock", payload)
+				$http.post("https://hangers.herokuapp.com/service/rest/sell", payload)
 					.success(function(response){
 						console.log(response);
 					})
