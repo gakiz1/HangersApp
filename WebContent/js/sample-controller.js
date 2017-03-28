@@ -37,7 +37,7 @@
 						"brand"      : $scope.brand,
 						"size"       : $scope.size,
 						"quantity"   : $scope.quantity,
-						"priceIn"    : $scope.unitprice,
+						"priceIn"    : $scope.unitPrice,
 						"dateIn"     : $scope.date
 				};
 				$http.post("https://hangers.herokuapp.com/service/rest/addStock", payload)
