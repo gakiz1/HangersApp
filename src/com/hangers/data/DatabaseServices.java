@@ -59,8 +59,8 @@ public class DatabaseServices {
             preparedStatement.setFloat(6, item.getPriceIn());
             preparedStatement.setDate(7, item.getDateIn());
             
-            resultSet = preparedStatement.executeQuery();
-            if (resultSet != null) {
+            int rs = preparedStatement.executeUpdate();
+            if (rs != 0) {
             	System.out.println("successfull!");
             	 result="successfully Added the stock";
               
