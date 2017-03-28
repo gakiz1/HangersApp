@@ -165,7 +165,7 @@ public class DatabaseServices {
 				jsonObject.put("brand", rs.getString(3));
 				jsonObject.put("quantity", rs.getInt(4));
 				jsonObject.put("size", rs.getString(5));
-				jsonObject.put("price", rs.getInt(6));
+				jsonObject.put("price", rs.getFloat(6));
 				jsonObject.put("date In", rs.getDate(7));
 				
 				
