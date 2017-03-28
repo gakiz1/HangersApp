@@ -47,7 +47,7 @@
 					.error(function(response){
 						console.log("Error : "+response);
 					});
-              $scope.message="Successfully Added the stock";
+              $scope.message="Successfully Added the stock...";
             }
     	}
     }
@@ -58,6 +58,20 @@
     	if (($scope.itemCode == null) || ($scope.quantity == null) ||($scope.sellingPrice == null) || ($scope.date== null)){
            window.alert("Please fill the fields !!!!");
             } else{
+            var payload = {
+						"itemCode"   : $scope.itemCode,
+						"quantity"   : $scope.quantity,
+						"priceOut"   : $scope.sellingPrice,
+						"dateOut"    : $scope.date
+				};
+				$http.post("https://hangers.herokuapp.com/service/rest/addStock", payload)
+					.success(function(response){
+						console.log(response);
+					})
+					.error(function(response){
+						console.log("Error : "+response);
+					});
+            
               $scope.message="Sold Out!!!";
             }
     	}

@@ -23,6 +23,7 @@ import com.hangers.pojo.Item;
 public class DatabaseServices {
 	private final static String ADD_STOCK_QUERY="INSERT INTO STOCKIN VALUES(?,?,?,?,?,?,?)";
 	private static String dropQuery = "DESC  table STOCKIN";
+	private static String DECREMENT_QUANTITY_QUERY ="UPDATE STOCKIN SET QUANTITY=QUANTITY - ? WHERE ITEM_CODE=? ";
 	
 	
 	public static String CreateTable()throws ClassNotFoundException, URISyntaxException, SQLException {
@@ -76,6 +77,39 @@ public class DatabaseServices {
 
 	}
 	
+	public static String sell(Item item)
+			throws ClassNotFoundException, URISyntaxException, SQLException {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        String result;
+		Connection connection = DatabaseConnectivity.getConnected();
+		if (connection != null) {
+			Statement st = connection.createStatement();
+            String sqlQuery = DECREMENT_QUANTITY_QUERY;
+            
+    
+            preparedStatement = connection.prepareStatement(sqlQuery);
+            preparedStatement.setInt(1, item.getQuantity());
+            preparedStatement.setString(2, item.getItemCode());
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet != null) {
+            	System.out.println("successfull!");
+            	 result="successfully Sold...";
+              
+            } else {
+	            System.out.println("Failed!");
+	             result="Failed.. ";
+            }
+
+			
+			connection.close();
+			return result;
+		}
+		else
+			return "Connection Failed";
+
+	}
+
 	public static JSONArray getAllItems() throws ClassNotFoundException, URISyntaxException, SQLException, JSONException{
 		Connection connection = DatabaseConnectivity.getConnected();
 		JSONArray jsonArray = new JSONArray();
