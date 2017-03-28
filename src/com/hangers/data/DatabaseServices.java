@@ -83,6 +83,7 @@ public class DatabaseServices {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         String result;
+        String results;
 		Connection connection = DatabaseConnectivity.getConnected();
 		if (connection != null) {
 			Statement st = connection.createStatement();
@@ -93,10 +94,27 @@ public class DatabaseServices {
             preparedStatement.setInt(1, item.getQuantity());
             preparedStatement.setString(2, item.getItemCode());
             int rs = preparedStatement.executeUpdate();
+           
             if (rs != 0) {
             	System.out.println("successfull!");
             	 result="successfully Sold...";
-            	 
+            	sqlQuery =ADD_SELL_QUERY; 
+            	
+            	preparedStatement = connection.prepareStatement(sqlQuery);
+                
+                preparedStatement.setString(1, item.getItemCode());
+                preparedStatement.setInt(2, item.getQuantity());
+                preparedStatement.setFloat(3, item.getPriceOut());
+                preparedStatement.setDate(4, item.getDateOut());
+                
+                int rst = preparedStatement.executeUpdate();
+                
+                if(rst != 0){
+                 results="Successfully added to the Stock Out table";
+                }else{
+                	results="Failed to add to the Stock out table ";
+                }
+            	
               
             } else {
 	            System.out.println("Failed!");
@@ -105,7 +123,7 @@ public class DatabaseServices {
 
 			
 			connection.close();
-			return result+""+rs;
+			return result+""+rs+results;
 		}
 		else
 			return "Connection Failed";
