@@ -24,6 +24,7 @@ public class DatabaseServices {
 	private final static String ADD_STOCK_QUERY="INSERT INTO STOCKIN VALUES(?,?,?,?,?,?,?)";
 	private static String dropQuery = "DESC  table STOCKIN";
 	private static String DECREMENT_QUANTITY_QUERY ="UPDATE STOCKIN SET QUANTITY=QUANTITY - ? WHERE ITEM_CODE=? ";
+	private final static String ADD_SELL_QUERY="INSERT INTO STOCKOUT VALUES(?,?,?,?)";
 	
 	
 	public static String CreateTable()throws ClassNotFoundException, URISyntaxException, SQLException {
@@ -91,10 +92,11 @@ public class DatabaseServices {
             preparedStatement = connection.prepareStatement(sqlQuery);
             preparedStatement.setInt(1, item.getQuantity());
             preparedStatement.setString(2, item.getItemCode());
-            resultSet = preparedStatement.executeQuery();
-            if (resultSet != null) {
+            int rs = preparedStatement.executeUpdate();
+            if (rs != 0) {
             	System.out.println("successfull!");
             	 result="successfully Sold...";
+            	 
               
             } else {
 	            System.out.println("Failed!");
@@ -103,7 +105,7 @@ public class DatabaseServices {
 
 			
 			connection.close();
-			return result;
+			return result+""+rs;
 		}
 		else
 			return "Connection Failed";
