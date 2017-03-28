@@ -66,6 +66,26 @@ public class TestService {
 			return "JSONException : " + e;
 		} 
 	}
+	
+	@POST
+	@Path("/accounts")
+	public String accounts(Item item) {
+		try {
+			
+			if(item==null){
+				
+				return "item is null";
+			}else{
+				String message=DatabaseServices.accounts(item);
+				return 	message;
+			}
+			
+			
+		} catch (Exception e) {
+			System.out.println("JSONException : " + e);
+			return "JSONException : " + e;
+		} 
+	}
 	@GET
 	@Path("/getAll")
 	@Produces(MediaType.TEXT_PLAIN)

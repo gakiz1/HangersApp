@@ -27,6 +27,7 @@ public class DatabaseServices {
 	private static String dropQuery = "DESC  table STOCKIN";
 	private static String DECREMENT_QUANTITY_QUERY ="UPDATE STOCKIN SET QUANTITY=QUANTITY - ? WHERE ITEM_CODE=? ";
 	private final static String ADD_SELL_QUERY="INSERT INTO STOCKOUT VALUES(?,?,?,?,?)";
+	private final static String ACCOUNTS_QUERY1="SELECT (SOUT.QUANTITY * SOUT.PRICE_OUT)-(SIN.PRICE_IN * SOUT.QUANTITY) AS PROFIT FROM STOCKIN SIN INNER JOIN STOCKOUT SOUT ON SOUT.ITEM_CODE = SIN.ITEM_CODE WHERE SOUT.DATE_OUT  BETWEEN (?,?);";
 	
 	
 	public static String CreateTable()throws ClassNotFoundException, URISyntaxException, SQLException {
@@ -92,6 +93,41 @@ public class DatabaseServices {
 
 	}
 	
+	public static String accounts(Item item)
+			throws ClassNotFoundException, URISyntaxException, SQLException {
+        PreparedStatement preparedStatement = null;
+        ResultSet resultSet = null;
+        String result;
+		Connection connection = DatabaseConnectivity.getConnected();
+		if (connection != null) {
+			Statement st = connection.createStatement();
+            String sqlQuery = ACCOUNTS_QUERY1;
+            
+    
+            preparedStatement = connection.prepareStatement(sqlQuery);
+            preparedStatement.setDate(1, item.getDateIn());
+            preparedStatement.setDate(2, item.getDateOut());
+            int rs = preparedStatement.executeUpdate();
+           
+            if (rs != 0) {
+            	System.out.println("successfull!");
+            	 result="successfully Sold...";
+            	
+              
+            } else {
+	            System.out.println("Failed!");
+	             result="Failed.. ";
+            }
+
+			
+			connection.close();
+			return result+""+rs;
+		}
+		else
+			return "Connection Failed";
+
+	}
+
 	public static String sell(Item item)
 			throws ClassNotFoundException, URISyntaxException, SQLException {
         PreparedStatement preparedStatement = null;
@@ -149,7 +185,7 @@ public class DatabaseServices {
 			return "Connection Failed";
 
 	}
-
+	
 	public static JSONArray getAllItems() throws ClassNotFoundException, URISyntaxException, SQLException, JSONException{
 		Connection connection = DatabaseConnectivity.getConnected();
 		JSONArray jsonArray = new JSONArray();
