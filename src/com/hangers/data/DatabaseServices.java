@@ -25,6 +25,8 @@ public class DatabaseServices {
 	private final static String ADD_STOCK_QUERY="INSERT INTO STOCKIN VALUES(?,?,?,?,?,?,?)";
 	private final static String ADD_STOCK_TO_MASTER_QUERY="INSERT INTO MASTER VALUES(?,?,?,?,?,?,?)";
 	private static String dropQuery = "DROP table STOCKOUT";
+	private static String tableCreate = "CREATE TABLE STOCKOUT(ITEM_CODE CHAR(50) NOT NULL,QUANTITY INT NOT NULL,PRICE_OUT FLOAT(20) NOT NULL,DATE_OUT DATE NOT NULL,TRANSACTION_ID CHAR(50) ";
+	
 	private static String DECREMENT_QUANTITY_QUERY ="UPDATE STOCKIN SET QUANTITY=QUANTITY - ? WHERE ITEM_CODE=? ";
 	private final static String ADD_SELL_QUERY="INSERT INTO STOCKOUT VALUES(?,?,?,?,?)";
 	private final static String ACCOUNTS_QUERY1="SELECT (SOUT.QUANTITY * SOUT.PRICE_OUT)-(SIN.PRICE_IN * SOUT.QUANTITY) AS PROFIT FROM STOCKIN SIN INNER JOIN STOCKOUT SOUT ON SOUT.ITEM_CODE = SIN.ITEM_CODE WHERE SOUT.DATE_OUT  BETWEEN (?,?);";
@@ -35,7 +37,7 @@ public class DatabaseServices {
 		Connection connection = DatabaseConnectivity.getConnected();
 		if (connection != null) {
 			Statement st = connection.createStatement();
-			ResultSet rs = st.executeQuery(dropQuery);
+			ResultSet rs = st.executeQuery(tableCreate);
 			String result=rs.toString();
 			System.out.println("Query executed!");
 			connection.close();
