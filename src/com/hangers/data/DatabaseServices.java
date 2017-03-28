@@ -23,6 +23,7 @@ import com.hangers.pojo.Item;
 
 public class DatabaseServices {
 	private final static String ADD_STOCK_QUERY="INSERT INTO STOCKIN VALUES(?,?,?,?,?,?,?)";
+	private final static String ADD_STOCK_TO_MASTER_QUERY="INSERT INTO MASTER VALUES(?,?,?,?,?,?,?)";
 	private static String dropQuery = "DESC  table STOCKIN";
 	private static String DECREMENT_QUANTITY_QUERY ="UPDATE STOCKIN SET QUANTITY=QUANTITY - ? WHERE ITEM_CODE=? ";
 	private final static String ADD_SELL_QUERY="INSERT INTO STOCKOUT VALUES(?,?,?,?,?)";
@@ -61,7 +62,19 @@ public class DatabaseServices {
             preparedStatement.setDate(7, item.getDateIn());
             
             int rs = preparedStatement.executeUpdate();
-            if (rs != 0) {
+            
+            String sqlQuery2 = ADD_STOCK_TO_MASTER_QUERY;
+            preparedStatement = connection.prepareStatement(sqlQuery2);
+            preparedStatement.setString(1, item.getItemCode());
+            preparedStatement.setString(2, item.getItemType());
+            preparedStatement.setString(3, item.getBrand());
+            preparedStatement.setInt(4, item.getQuantity());
+            preparedStatement.setString(5, item.getSize());
+            preparedStatement.setFloat(6, item.getPriceIn());
+            preparedStatement.setDate(7, item.getDateIn());
+            
+            int ms =preparedStatement.executeUpdate();
+            if (rs != 0 && ms != 0) {
             	System.out.println("successfull!");
             	 result="successfully Added the stock";
               
