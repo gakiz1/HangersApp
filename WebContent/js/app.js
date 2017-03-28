@@ -23,12 +23,12 @@ app.config(function($routeProvider) {
     }) 
     .when("/remaining", {
         templateUrl : "pages/remaining.html",
-        controller  : "sampleController"
+        controller  : "accountController"
         
     }) 
     .when("/soldItems", {
         templateUrl : "pages/soldItems.html",
-        controller  : "sampleController"
+        controller  : "accountController"
         
     }) 
      .otherwise({

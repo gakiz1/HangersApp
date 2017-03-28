@@ -118,15 +118,48 @@
 											 function(rows) {
 													 $scope.mySelections = gridApi.selection
 																		 .getSelectedRows();
-														$scope.cusName = rows.entity.customerName;
+													
 
-															console
-															.log(rows.entity.customerName);
-
-                                                                                                                                                                                });
+                                                                  });
 
                                                                                                 }
                                                                                 };
+    
+                                                                                    $scope.gridOptions.columnDefs = [ {
+                                                                                                name : 'ITEM CODE',
+                                                                                                field : 'item code'
+                                                                                }, {
+                                                                                                name : 'ITEM TYPE',
+                                                                                                field : 'item type'
+                                                                                }, {
+                                                                                                name : 'brand',
+                                                                                                field : 'customerCity'
+                                                                                }, {
+                                                                                                name : 'QUANTITY',
+                                                                                                field : 'quantity'
+                                                                                } ,{
+                                                                                                name : 'SIZE',
+                                                                                                field : 'size'
+                                                                                },{
+                                                                                                name : 'PRICE',
+                                                                                                field : 'price'
+                                                                                }, {
+                                                                                                name : 'DATE IN',
+                                                                                                field : 'date in'
+                                                                                }];
+
+                                                                                $scope.gridOptions.multiSelect = true;
+
+                                                                                $http
+                                                                                                                .get(
+                                                                                                                                                "http://hangers.herokuapp.com/service/rest/getAll")
+                                                                                                                .success(function(data, status, headers, config) {
+                                                                                                                                $scope.greetings = data;
+                                                                                                                                $scope.gridOptions.data = $scope.greetings;
+                                                                                                                                console.log($scope.greetings);
+                                                                                                                });
+
+                                                                });
     
     
 })();
