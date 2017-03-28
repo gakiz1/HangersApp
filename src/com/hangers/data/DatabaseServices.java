@@ -83,7 +83,7 @@ public class DatabaseServices {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         String result;
-        String results;
+        String results="default";
 		Connection connection = DatabaseConnectivity.getConnected();
 		if (connection != null) {
 			Statement st = connection.createStatement();
