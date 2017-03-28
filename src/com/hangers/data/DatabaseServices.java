@@ -155,7 +155,7 @@ public class DatabaseServices {
 		JSONArray jsonArray = new JSONArray();
 		if (connection != null) {
 			Statement st = connection.createStatement();
-			String query = "SELECT * FROM MASTER";
+			String query = "SELECT * FROM STOCKIN";
 			ResultSet rs = st.executeQuery(query);
 			while(rs.next()){
 				JSONObject jsonObject = new JSONObject();
