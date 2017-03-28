@@ -4,6 +4,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.net.URISyntaxException;
 import java.sql.Connection;
@@ -24,7 +25,7 @@ public class DatabaseServices {
 	private final static String ADD_STOCK_QUERY="INSERT INTO STOCKIN VALUES(?,?,?,?,?,?,?)";
 	private static String dropQuery = "DESC  table STOCKIN";
 	private static String DECREMENT_QUANTITY_QUERY ="UPDATE STOCKIN SET QUANTITY=QUANTITY - ? WHERE ITEM_CODE=? ";
-	private final static String ADD_SELL_QUERY="INSERT INTO STOCKOUT VALUES(?,?,?,?)";
+	private final static String ADD_SELL_QUERY="INSERT INTO STOCKOUT VALUES(?,?,?,?,?)";
 	
 	
 	public static String CreateTable()throws ClassNotFoundException, URISyntaxException, SQLException {
@@ -100,12 +101,18 @@ public class DatabaseServices {
             	 result="successfully Sold...";
             	sqlQuery =ADD_SELL_QUERY; 
             	
+            	Date date= new Date();
+                String transactionId="H"+date;
+                
             	preparedStatement = connection.prepareStatement(sqlQuery);
                 
                 preparedStatement.setString(1, item.getItemCode());
                 preparedStatement.setInt(2, item.getQuantity());
                 preparedStatement.setFloat(3, item.getPriceOut());
                 preparedStatement.setDate(4, item.getDateOut());
+                preparedStatement.setString(5, transactionId);
+                
+               
                 
                 int rst = preparedStatement.executeUpdate();
                 
