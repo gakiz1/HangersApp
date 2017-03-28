@@ -191,20 +191,17 @@ public class DatabaseServices {
 		JSONArray jsonArray = new JSONArray();
 		if (connection != null) {
 			Statement st = connection.createStatement();
-			String query = "SELECT * FROM STOCKIN";
+			String query = "SELECT * FROM STOCKOUT";
 			ResultSet rs = st.executeQuery(query);
 			while(rs.next()){
 				JSONObject jsonObject = new JSONObject();
 				
 				jsonObject.put("item code", rs.getString(1));
-				jsonObject.put("Type", rs.getString(2));
-				jsonObject.put("brand", rs.getString(3));
-				jsonObject.put("quantity", rs.getInt(4));
-				jsonObject.put("size", rs.getString(5));
-				jsonObject.put("price", rs.getFloat(6));
-				jsonObject.put("price2", rs.getString(6));
-				jsonObject.put("price3", rs.getInt(6));
-				jsonObject.put("date In", rs.getDate(7));
+				
+				jsonObject.put("quantity", rs.getInt(2));
+				
+				jsonObject.put("price", rs.getFloat(3));
+				jsonObject.put("date Out", rs.getDate(4));
 				
 				
 				jsonArray.put(jsonObject);
