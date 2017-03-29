@@ -120,10 +120,6 @@
 					
 		 $scope.mainGridOptions = {
                 dataSource: myData,
-                    pageSize: 5,
-                    serverPaging: true,
-                    serverSorting: true
-                },
                 sortable: true,
                 pageable: true,
            
