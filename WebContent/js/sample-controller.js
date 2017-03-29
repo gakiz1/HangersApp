@@ -98,11 +98,11 @@
 				$http.post("https://hangers.herokuapp.com/service/rest/accounts", payload)
 					.success(function(response){
 						console.log(response);
-						$scope.message="Account Details"+response;
+						$scope.message="Profit:"+response;
 					})
 					.error(function(response){
 						console.log("Error : "+response);
-						$scope.message="Account Details"+response;
+						$scope.message="Profit:"+response;
 					});
             
               

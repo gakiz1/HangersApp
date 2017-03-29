@@ -97,12 +97,13 @@ public class DatabaseServices {
 
 	}
 	
-	public static List<Float> accounts(Item item)
+	public static float accounts(Item item)
 			throws ClassNotFoundException, URISyntaxException, SQLException {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         String result;
         List<Float> profit = new ArrayList();
+        float sum =0F;
         
 		Connection connection = DatabaseConnectivity.getConnected();
 		if (connection != null) {
@@ -118,16 +119,16 @@ public class DatabaseServices {
             while (rs.next()) {
             	System.out.println("successfull!");
             	 result="successfully Sold...";
-            	
+            	sum+=rs.getFloat(1);
             	 profit.add(rs.getFloat(1));
             } 
 
 			
 			connection.close();
-			return profit;
+			return sum;
 		}
 		else
-			return profit;
+			return sum;
 
 	}
 

@@ -70,12 +70,12 @@ public class TestService {
 	
 	@POST
 	@Path("/accounts")
-	public List<Float> accounts(Item item) {
+	public float accounts(Item item) {
 		try {
 			
 			if(item==null){
 				
-				return null;
+				return 0;
 			}else{
 				return DatabaseServices.accounts(item);
 				
@@ -84,7 +84,7 @@ public class TestService {
 			
 		} catch (Exception e) {
 			System.out.println("JSONException : " + e);
-			return null;
+			return 0;
 		} 
 	}
 	@GET
