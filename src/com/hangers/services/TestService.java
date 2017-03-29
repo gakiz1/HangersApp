@@ -84,7 +84,7 @@ public class TestService {
 			
 		} catch (Exception e) {
 			System.out.println("JSONException : " + e);
-			return "JSONException : " + e;
+			return null;
 		} 
 	}
 	@GET
