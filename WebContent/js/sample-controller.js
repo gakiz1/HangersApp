@@ -42,16 +42,16 @@
 						"priceIn"    : $scope.unitPrice,
 						"dateIn"     : $scope.date
 				};
-				 $scope.message;
+				 
 				$http.post("https://hangers.herokuapp.com/service/rest/addStock", payload)
 					.success(function(response){
 						console.log(response);
 						console.log(payload.dateIn);
-						 message="Successfully Added the stock...";
+						 $scope.message=response;
 					})
 					.error(function(response){
 						console.log("Error : "+response);
-						 message=response;
+						 $scope.message=response;
 					});
               $scope.message="Successfully Added the stock...";
             }
@@ -73,7 +73,7 @@
 				$http.post("https://hangers.herokuapp.com/service/rest/sell", payload)
 					.success(function(response){
 						console.log(response);
-						    $scope.message="Sold Out!!!";
+						    $scope.message=response;
 					})
 					.error(function(response){
 						console.log("Error : "+response);
