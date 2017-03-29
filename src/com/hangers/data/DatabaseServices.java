@@ -112,8 +112,17 @@ public class DatabaseServices {
             
     
             preparedStatement = connection.prepareStatement(sqlQuery);
-          preparedStatement.setDate(1, item.getDateIn());
-            preparedStatement.setDate(2, item.getDateOut());
+            java.sql.Date one=item.getDateIn();
+            java.sql.Date two=item.getDateOut();
+            if(one.after(two)){
+            	java.sql.Date temp=two;
+            	two=one;
+            	one=temp;
+            	
+            }
+            
+          preparedStatement.setDate(1, one);
+            preparedStatement.setDate(2, two);
             ResultSet rs = preparedStatement.executeQuery();
            
             while (rs.next()) {
