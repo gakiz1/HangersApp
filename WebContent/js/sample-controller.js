@@ -107,19 +107,12 @@
     }
 	
 	function remainingController($scope,$http){
-		var myData;
+		//var myData;
 		$http.get("https://hangers.herokuapp.com/service/rest/getAll")
 					.success(function(response){
 						console.log(response);
-						myData=response;
-					})
-					.error(function(response){
-						console.log("Error : "+response);
-						//$scope.message="Account Details"+response;
-					});
-					
-		 $scope.mainGridOptions = {
-                dataSource: myData,
+						$scope.mainGridOptions = {
+                dataSource: response,
                 sortable: true,
                 pageable: true,
            
@@ -130,6 +123,13 @@
                     }]
 					
     };
+					})
+					.error(function(response){
+						console.log("Error : "+response);
+						//$scope.message="Account Details"+response;
+					});
+					
+		 
 	}
    
 })();
