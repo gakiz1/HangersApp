@@ -28,7 +28,7 @@ app.config(function($routeProvider) {
     }) 
     .when("/soldItems", {
         templateUrl : "pages/soldItems.html",
-        controller  : "accountController"
+        controller  : "soldController"
         
     }) 
      .otherwise({

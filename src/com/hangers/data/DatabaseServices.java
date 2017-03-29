@@ -221,6 +221,27 @@ public class DatabaseServices {
 		return jsonArray;
 	}
 	
+	public static JSONArray getAllItemsSold() throws ClassNotFoundException, URISyntaxException, SQLException, JSONException{
+		Connection connection = DatabaseConnectivity.getConnected();
+		JSONArray jsonArray = new JSONArray();
+		if (connection != null) {
+			Statement st = connection.createStatement();
+			String query = "SELECT * FROM STOCKIN";
+			ResultSet rs = st.executeQuery(query);
+			while(rs.next()){
+				JSONObject jsonObject = new JSONObject();
+				
+				jsonObject.put("itemCode", rs.getString(1));
+				jsonObject.put("quantity", rs.getInt(2));
+				jsonObject.put("price", rs.getFloat(3));
+				jsonObject.put("dateOut", rs.getDate(4));
+				jsonObject.put("transactionId", rs.getString(5));
+				jsonArray.put(jsonObject);
+			}
+		}
+		connection.close();
+		return jsonArray;
+	}
 	public static String deleteItem(String itemNumber) throws ClassNotFoundException, URISyntaxException, SQLException{
 		Connection connection = DatabaseConnectivity.getConnected();
 		if(connection!=null){

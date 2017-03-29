@@ -101,12 +101,12 @@ public class TestService {
 	}
 	
 	@GET
-	@Path("/getMe")
+	@Path("/sold")
 	@Produces(MediaType.TEXT_PLAIN)
 	public String getAllItemsFromDB(){
 		String result = null;
 		try {
-			result = DatabaseServices.getAllItems().toString();
+			result = DatabaseServices.getAllItemsSold().toString();
 		} catch (ClassNotFoundException | URISyntaxException | SQLException
 				| JSONException e) {
 			result = e.toString();

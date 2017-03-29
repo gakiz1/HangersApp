@@ -7,7 +7,8 @@
         	.controller('stockInController', stockInController)
         	.controller('stockOutController', stockOutController)
         	.controller('accountController', accountController)
-			.controller('remainingController',remainingController);
+			.controller('remainingController',remainingController)
+			.controller('soldController',soldController);
 
     function sampleController($scope,$http) { 
     	console.log("Hello World");
@@ -107,7 +108,6 @@
     }
 	
 	function remainingController($scope,$http){
-		//var myData;
 		$http.get("https://hangers.herokuapp.com/service/rest/getAll")
 					.success(function(response){
 						console.log(response);
@@ -156,7 +156,49 @@
 					})
 					.error(function(response){
 						console.log("Error : "+response);
-						//$scope.message="Account Details"+response;
+					});
+					
+		 
+	}
+   	function soldController($scope,$http){
+		$http.get("https://hangers.herokuapp.com/service/rest/sold")
+					.success(function(response){
+						console.log(response);
+						$scope.mainGridOptions = {
+                dataSource: response,
+                sortable: true,
+                pageable: true,
+           
+                columns: [{
+                    field: "itemCode",
+                    title: "ITEM CODE",
+                    width: "120px"
+                    },
+                    {
+                    field: "quantity",
+                    title: "QUANTITY",
+                    width: "120px"
+                    },
+                    {
+                    field: "price",
+                    title: "UNIT PRICE",
+                    width: "120px"
+                    },
+                    {
+                    field: "dateOut",
+                    title: "SOLD DATE",
+                    width: "120px"
+                    },
+					{
+					field: "transactionId",
+                    title: "TRANSACTION ID",
+                    width: "120px"	
+					}]
+					
+    };
+					})
+					.error(function(response){
+						console.log("Error : "+response);
 					});
 					
 		 
