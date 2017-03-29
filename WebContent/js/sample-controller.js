@@ -107,21 +107,19 @@
     }
 	
 	function remainingController($scope,$http){
+		var myData;
 		$http.get("http://hangers.herokuapp.com/service/rest/getAll")
 					.success(function(response){
 						console.log(response);
-						$scope.myData=response.data;
+						myData=response.data;
 					})
 					.error(function(response){
 						console.log("Error : "+response);
-						$scope.message="Account Details"+response;
+						//$scope.message="Account Details"+response;
 					});
 					
 		 $scope.mainGridOptions = {
-                dataSource: {
-                    transport: {
-                        read: "http://hangers.herokuapp.com/service/rest/getAll"
-                    },
+                dataSource: myData,
                     pageSize: 5,
                     serverPaging: true,
                     serverSorting: true
