@@ -148,7 +148,7 @@ public class DatabaseServices {
         	 preparedStatement.setString(1, item.getItemCode());
              ResultSet rsq = preparedStatement.executeQuery();
              
-             if(rsq != null){
+             while(rsq.next()){
             	 
             	qty= rsq.getInt(1);
              }
