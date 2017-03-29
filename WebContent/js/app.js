@@ -23,7 +23,7 @@ app.config(function($routeProvider) {
     }) 
     .when("/remaining", {
         templateUrl : "pages/remaining.html",
-        controller  : "accountController"
+        controller  : "remainingController"
         
     }) 
     .when("/soldItems", {

@@ -6,7 +6,8 @@
         	.controller('loginController', loginController)
         	.controller('stockInController', stockInController)
         	.controller('stockOutController', stockOutController)
-        	.controller('accountController', accountController);
+        	.controller('accountController', accountController)
+			.controller('remainingController',remainingController);
 
     function sampleController($scope,$http) { 
     	console.log("Hello World");
@@ -102,64 +103,23 @@
               
             }
     	}
+		
     }
-    
-    $scope.gridOptions = {
-                     enableRowSelection : true,
-                    enableSelectAll : true,
-                    selectionRowHeaderWidth : 35,
-					rowHeight : 35,
-					 showGridFooter : true,
-					onRegisterApi : function(gridApi) {
-					$scope.gridApi = gridApi;
-						 gridApi.selection.on
-						.rowSelectionChanged(
-										 $scope,
-											 function(rows) {
-													 $scope.mySelections = gridApi.selection
-																		 .getSelectedRows();
-													
-
-                                                                  });
-
-                                                                                                }
-                                                                                };
-    
-                                                                                    $scope.gridOptions.columnDefs = [ {
-                                                                                                name : 'ITEM CODE',
-                                                                                                field : 'item code'
-                                                                                }, {
-                                                                                                name : 'ITEM TYPE',
-                                                                                                field : 'item type'
-                                                                                }, {
-                                                                                                name : 'brand',
-                                                                                                field : 'customerCity'
-                                                                                }, {
-                                                                                                name : 'QUANTITY',
-                                                                                                field : 'quantity'
-                                                                                } ,{
-                                                                                                name : 'SIZE',
-                                                                                                field : 'size'
-                                                                                },{
-                                                                                                name : 'PRICE',
-                                                                                                field : 'price'
-                                                                                }, {
-                                                                                                name : 'DATE IN',
-                                                                                                field : 'date in'
-                                                                                }];
-
-                                                                                $scope.gridOptions.multiSelect = true;
-
-                                                                                $http
-                                                                                                                .get(
-                                                                                                                                                "http://hangers.herokuapp.com/service/rest/getAll")
-                                                                                                                .success(function(data, status, headers, config) {
-                                                                                                                                $scope.greetings = data;
-                                                                                                                                $scope.gridOptions.data = $scope.greetings;
-                                                                                                                                console.log($scope.greetings);
-                                                                                                                });
-
-                                                                });
-    
-    
+	
+	function remainingController($scope,$http){
+		$http.get("http://hangers.herokuapp.com/service/rest/getAll")
+					.success(function(response){
+						console.log(response);
+						$scope.myData=response.data;
+					})
+					.error(function(response){
+						console.log("Error : "+response);
+						$scope.message="Account Details"+response;
+					});
+					 $scope.gridOptions = { 
+        data: 'myData',
+  	    columnDefs: [{field: 'itemCode', displayName: 'code'}, {field:'itemType', displayName:'type'}]
+    };
+	}
+   
 })();
