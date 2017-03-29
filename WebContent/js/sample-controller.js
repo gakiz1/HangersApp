@@ -107,7 +107,7 @@
     }
 	
 	function remainingController($scope,$http){
-		/*$http.get("http://hangers.herokuapp.com/service/rest/getAll")
+		$http.get("http://hangers.herokuapp.com/service/rest/getAll")
 					.success(function(response){
 						console.log(response);
 						$scope.myData=response.data;
@@ -115,7 +115,7 @@
 					.error(function(response){
 						console.log("Error : "+response);
 						$scope.message="Account Details"+response;
-					});*/
+					});
 					
 		 $scope.mainGridOptions = {
                 dataSource: {
