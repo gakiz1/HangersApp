@@ -45,6 +45,7 @@
 				$http.post("https://hangers.herokuapp.com/service/rest/addStock", payload)
 					.success(function(response){
 						console.log(response);
+						console.log(payload.dateIn);
 					})
 					.error(function(response){
 						console.log("Error : "+response);
