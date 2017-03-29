@@ -124,7 +124,7 @@
                 pageable: true,
            
                 columns: [{
-                    field: "item code",
+                    field: "itemCode",
                     title: "Code",
                     width: "120px"
                     }]
