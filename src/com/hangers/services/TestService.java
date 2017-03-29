@@ -109,6 +109,7 @@ public class TestService {
 			result = DatabaseServices.getAllItems().toString();
 		} catch (ClassNotFoundException | URISyntaxException | SQLException
 				| JSONException e) {
+			result = e.toString();
 			e.printStackTrace();
 		}
 		return result;
