@@ -23,11 +23,12 @@ import com.hangers.pojo.Item;
 
 public class DatabaseServices {
 	private final static String ADD_STOCK_QUERY="INSERT INTO STOCKIN VALUES(?,?,?,?,?,?,?)";
+	private final static String QUANTITY_QUERY="SELECT QUANTITY FROM STOCKIN WHERE ITEM_CODE=?";
 	private final static String ADD_STOCK_TO_MASTER_QUERY="INSERT INTO MASTER VALUES(?,?,?,?,?,?,?)";
 	private static String dropQuery = "DROP table STOCKOUT";
 	private static String tableCreate = "CREATE TABLE STOCKOUT(ITEM_CODE CHAR(50) NOT NULL,QUANTITY INT NOT NULL,PRICE_OUT FLOAT(20) NOT NULL,DATE_OUT DATE NOT NULL,TRANSACTION_ID CHAR(50)) ";
 	private static String truncate="TRUNCATE TABLE MASTER";
-	private static String DECREMENT_QUANTITY_QUERY ="UPDATE STOCKIN SET QUANTITY=QUANTITY - ? WHERE ITEM_CODE=? ";
+	private final static String DECREMENT_QUANTITY_QUERY ="UPDATE STOCKIN SET QUANTITY=QUANTITY - ? WHERE ITEM_CODE=? ";
 	private final static String ADD_SELL_QUERY="INSERT INTO STOCKOUT VALUES(?,?,?,?,?)";
 	private final static String ACCOUNTS_QUERY1=
 	"SELECT (SOUT.QUANTITY * SOUT.PRICE_OUT)-(SIN.PRICE_IN * SOUT.QUANTITY) AS PROFIT FROM STOCKIN SIN INNER JOIN STOCKOUT SOUT ON SOUT.ITEM_CODE = SIN.ITEM_CODE WHERE SOUT.DATE_OUT  BETWEEN '2017/03/09' AND '2017/03/01'";
@@ -137,10 +138,21 @@ public class DatabaseServices {
         ResultSet resultSet = null;
         String result;
         String results="default";
+        int qty;
 		Connection connection = DatabaseConnectivity.getConnected();
 		if (connection != null) {
 			Statement st = connection.createStatement();
-            String sqlQuery = DECREMENT_QUANTITY_QUERY;
+			
+			String sqlQuery=QUANTITY_QUERY;
+        	 preparedStatement.setString(1, item.getItemCode());
+             ResultSet rsq = preparedStatement.executeQuery();
+             
+             if(rsq != null){
+            	 
+            	qty= rsq.getInt(1);
+             }
+			if(qty >= item.getQuantity()){
+             sqlQuery = DECREMENT_QUANTITY_QUERY;
             
     
             preparedStatement = connection.prepareStatement(sqlQuery);
@@ -151,13 +163,14 @@ public class DatabaseServices {
             if (rs != 0) {
             	System.out.println("successfull!");
             	 result="successfully Sold...";
+            	
             	sqlQuery =ADD_SELL_QUERY; 
             	
             	Date date= new Date();
                 String transactionId="H"+date;
                 
             	preparedStatement = connection.prepareStatement(sqlQuery);
-                
+               
                 preparedStatement.setString(1, item.getItemCode());
                 preparedStatement.setInt(2, item.getQuantity());
                 preparedStatement.setFloat(3, item.getPriceOut());
@@ -177,12 +190,16 @@ public class DatabaseServices {
               
             } else {
 	            System.out.println("Failed!");
-	             result="Failed.. ";
+	             result="Failed to sell ";
             }
 
 			
 			connection.close();
-			return result+""+rs+results;
+			return result+results;
+			}
+			else{
+				return "The Item is not in Stock";
+			}
 		}
 		else
 			return "Connection Failed";
