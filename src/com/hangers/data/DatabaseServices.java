@@ -208,12 +208,12 @@ public class DatabaseServices {
 				jsonObject.put("t Id", rs.getString(5));*/
 				
                 jsonObject.put("itemCode", rs.getString(1));
-                jsonObject.put("item type", rs.getString(2));
+                jsonObject.put("itemType", rs.getString(2));
                 jsonObject.put(" brand", rs.getString(3));
 				jsonObject.put("quantity", rs.getInt(4));
 				jsonObject.put("size", rs.getString(5));
 				jsonObject.put("price", rs.getFloat(6));
-				jsonObject.put("date in", rs.getDate(7));
+				jsonObject.put("dateIn", rs.getDate(7));
 				jsonArray.put(jsonObject);
 			}
 		}

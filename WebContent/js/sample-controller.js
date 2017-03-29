@@ -118,7 +118,37 @@
            
                 columns: [{
                     field: "itemCode",
-                    title: "Code",
+                    title: "ITEM CODE",
+                    width: "120px"
+                    },
+                    {
+                    field: "itemType",
+                    title: "TYPE",
+                    width: "120px"
+                    },
+                    {
+                    field: "brand",
+                    title: "BRAND",
+                    width: "120px"
+                    },
+                    {
+                    field: "quantity",
+                    title: "QUANTITY",
+                    width: "120px"
+                    },
+                    {
+                    field: "size",
+                    title: "SIZE",
+                    width: "120px"
+                    },
+                    {
+                    field: "price",
+                    title: "UNIT PRICE",
+                    width: "120px"
+                    },
+                    {
+                    field: "dateIn",
+                    title: "STOCK DATE",
                     width: "120px"
                     }]
 					
