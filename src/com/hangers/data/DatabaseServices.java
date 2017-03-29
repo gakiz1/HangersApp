@@ -138,7 +138,7 @@ public class DatabaseServices {
         ResultSet resultSet = null;
         String result;
         String results="default";
-        int qty;
+        int qty=0;
 		Connection connection = DatabaseConnectivity.getConnected();
 		if (connection != null) {
 			Statement st = connection.createStatement();
