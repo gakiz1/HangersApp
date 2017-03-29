@@ -144,6 +144,7 @@ public class DatabaseServices {
 			Statement st = connection.createStatement();
 			
 			String sqlQuery=QUANTITY_QUERY;
+			preparedStatement = connection.prepareStatement(sqlQuery);
         	 preparedStatement.setString(1, item.getItemCode());
              ResultSet rsq = preparedStatement.executeQuery();
              

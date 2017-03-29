@@ -42,13 +42,16 @@
 						"priceIn"    : $scope.unitPrice,
 						"dateIn"     : $scope.date
 				};
+				 $scope.message;
 				$http.post("https://hangers.herokuapp.com/service/rest/addStock", payload)
 					.success(function(response){
 						console.log(response);
 						console.log(payload.dateIn);
+						 message="Successfully Added the stock...";
 					})
 					.error(function(response){
 						console.log("Error : "+response);
+						 message=response;
 					});
               $scope.message="Successfully Added the stock...";
             }
