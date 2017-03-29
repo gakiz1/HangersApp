@@ -108,7 +108,7 @@
 	
 	function remainingController($scope,$http){
 		var myData;
-		$http.get("http://hangers.herokuapp.com/service/rest/getAll")
+		$http.get("https://hangers.herokuapp.com/service/rest/getAll")
 					.success(function(response){
 						console.log(response);
 						myData=response.data;

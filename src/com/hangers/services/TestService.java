@@ -101,6 +101,20 @@ public class TestService {
 	}
 	
 	@GET
+	@Path("/getMe")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getAllItemsFromDB(){
+		String result = null;
+		try {
+			result = DatabaseServices.getAllItems().toString();
+		} catch (ClassNotFoundException | URISyntaxException | SQLException
+				| JSONException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
+	
+	@GET
 	@Path("/delete/{itemNumber}")
 	public String deleteItem(@PathParam("itemNumber") String itemNumber) throws ClassNotFoundException, URISyntaxException, SQLException{
 		return DatabaseServices.deleteItem(itemNumber);
