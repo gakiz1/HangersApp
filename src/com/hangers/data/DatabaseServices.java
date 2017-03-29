@@ -31,7 +31,7 @@ public class DatabaseServices {
 	private final static String DECREMENT_QUANTITY_QUERY ="UPDATE STOCKIN SET QUANTITY=QUANTITY - ? WHERE ITEM_CODE=? ";
 	private final static String ADD_SELL_QUERY="INSERT INTO STOCKOUT VALUES(?,?,?,?,?)";
 	private final static String ACCOUNTS_QUERY1=
-	"SELECT (SOUT.QUANTITY * SOUT.PRICE_OUT)-(SIN.PRICE_IN * SOUT.QUANTITY) AS PROFIT FROM STOCKIN SIN INNER JOIN STOCKOUT SOUT ON SOUT.ITEM_CODE = SIN.ITEM_CODE WHERE SOUT.DATE_OUT  BETWEEN '2017/03/09' AND '2017/03/01'";
+	"SELECT (SOUT.QUANTITY * SOUT.PRICE_OUT)-(SIN.PRICE_IN * SOUT.QUANTITY) FROM STOCKIN SIN , STOCKOUT SOUT WHERE SOUT.ITEM_CODE = SIN.ITEM_CODE AND SOUT.DATE_OUT  BETWEEN ? AND ?";
 	
 	
 	public static String CreateTable()throws ClassNotFoundException, URISyntaxException, SQLException {
@@ -97,11 +97,13 @@ public class DatabaseServices {
 
 	}
 	
-	public static String accounts(Item item)
+	public static List<Float> accounts(Item item)
 			throws ClassNotFoundException, URISyntaxException, SQLException {
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;
         String result;
+        List<Float> profit = new ArrayList();
+        
 		Connection connection = DatabaseConnectivity.getConnected();
 		if (connection != null) {
 			Statement st = connection.createStatement();
@@ -109,26 +111,23 @@ public class DatabaseServices {
             
     
             preparedStatement = connection.prepareStatement(sqlQuery);
-        /*    preparedStatement.setDate(1, item.getDateIn());
-            preparedStatement.setDate(2, item.getDateOut());*/
-            int rs = preparedStatement.executeUpdate();
+          preparedStatement.setDate(1, item.getDateIn());
+            preparedStatement.setDate(2, item.getDateOut());
+            ResultSet rs = preparedStatement.executeQuery();
            
-            if (rs != 0) {
+            while (rs.next()) {
             	System.out.println("successfull!");
             	 result="successfully Sold...";
             	
-              
-            } else {
-	            System.out.println("Failed!");
-	             result="Failed.. ";
-            }
+            	 profit.add(rs.getFloat(1));
+            } 
 
 			
 			connection.close();
-			return result+""+rs;
+			return profit;
 		}
 		else
-			return "Connection Failed";
+			return profit;
 
 	}
 

@@ -3,6 +3,7 @@ package com.hangers.services;
 import java.net.URISyntaxException;
 import java.sql.SQLException;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.ws.rs.DELETE;
 import javax.ws.rs.GET;
@@ -69,15 +70,15 @@ public class TestService {
 	
 	@POST
 	@Path("/accounts")
-	public String accounts(Item item) {
+	public List<Float> accounts(Item item) {
 		try {
 			
 			if(item==null){
 				
-				return "item is null";
+				return null;
 			}else{
-				String message=DatabaseServices.accounts(item);
-				return 	message;
+				return DatabaseServices.accounts(item);
+				
 			}
 			
 			
