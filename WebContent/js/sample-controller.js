@@ -111,7 +111,7 @@
 		$http.get("https://hangers.herokuapp.com/service/rest/getAll")
 					.success(function(response){
 						console.log(response);
-						myData=response.data;
+						myData=response;
 					})
 					.error(function(response){
 						console.log("Error : "+response);
