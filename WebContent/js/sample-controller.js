@@ -107,7 +107,7 @@
     }
 	
 	function remainingController($scope,$http){
-		$http.get("http://hangers.herokuapp.com/service/rest/getAll")
+		/*$http.get("http://hangers.herokuapp.com/service/rest/getAll")
 					.success(function(response){
 						console.log(response);
 						$scope.myData=response.data;
@@ -115,10 +115,26 @@
 					.error(function(response){
 						console.log("Error : "+response);
 						$scope.message="Account Details"+response;
-					});
-					 $scope.gridOptions = { 
-        data: 'myData',
-  	    columnDefs: [{field: 'itemCode', displayName: 'code'}, {field:'itemType', displayName:'type'}]
+					});*/
+					
+		 $scope.mainGridOptions = {
+                dataSource: {
+                    transport: {
+                        read: "http://hangers.herokuapp.com/service/rest/getAll"
+                    },
+                    pageSize: 5,
+                    serverPaging: true,
+                    serverSorting: true
+                },
+                sortable: true,
+                pageable: true,
+           
+                columns: [{
+                    field: "ItemCode",
+                    title: "Code",
+                    width: "120px"
+                    }]
+					
     };
 	}
    
