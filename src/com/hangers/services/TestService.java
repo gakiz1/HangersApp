@@ -43,7 +43,7 @@ public class TestService {
 			
 		} catch (Exception e) {
 			System.out.println("JSONException : " + e);
-			return "JSONException : " + e;
+			return "Item code already exist..";
 		} 
 	}
 	
@@ -63,7 +63,7 @@ public class TestService {
 			
 		} catch (Exception e) {
 			System.out.println("JSONException : " + e);
-			return "JSONException : " + e;
+			return "This Item is not there in Stock..Please check the item code..";
 		} 
 	}
 	

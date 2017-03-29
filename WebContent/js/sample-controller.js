@@ -53,7 +53,7 @@
 						console.log("Error : "+response);
 						 $scope.message=response;
 					});
-              $scope.message="Successfully Added the stock...";
+             
             }
     	}
     }
