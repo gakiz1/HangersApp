@@ -16,11 +16,14 @@
     }
     
     function loginController($scope,$http){
+    $scope.divEnabled=false;
        $scope.checkCredentials=function(){
         if (($scope.name == null) ||  ($scope.password == null)) {
            window.alert("Please fill the fields !!!!");
             } else if(($scope.name == "hangers" ) || ($scope.password == "Admin")){
               $scope.message="Welcome Admin!!!";
+               $scope.divEnabled=true;
+              
             }else{
               $scope.message="Wrong Credentials";
             }
