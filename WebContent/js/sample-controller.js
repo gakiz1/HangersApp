@@ -15,7 +15,7 @@
     	$scope.message="Welcome";
     }
     
-    function loginController($scope,$http, $cookieStore){
+    function loginController($scope,$http){
     
        $scope.checkCredentials=function(){
        
