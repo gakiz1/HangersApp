@@ -68,7 +68,7 @@ app.config(function($routeProvider) {
     
     //Actual code starts here
     
-    run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
+    /*run.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
     function run($rootScope, $location, $cookieStore, $http) {
     	$cookieStore.put("loggedInStatus", "false");
     	
@@ -81,7 +81,7 @@ app.config(function($routeProvider) {
     		}
     	});
     	
-    }
+    }*/
     
     //Actual code ends here
     
