@@ -23,8 +23,8 @@
            window.alert("Please fill the fields !!!!");
             } else if(($scope.name == "hangers" ) || ($scope.password == "Admin")){
               $scope.message="Welcome Admin!!!";
-              $cookieStore.put("loggedInStatus", "true");
-              $cookieStore.put("path", "/stockIn");
+             /* $cookieStore.put("loggedInStatus", "true");
+              $cookieStore.put("path", "/stockIn");*/
               
             }else{
               $scope.message="Wrong Credentials";
