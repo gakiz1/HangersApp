@@ -15,14 +15,16 @@
     	$scope.message="Welcome";
     }
     
-    function loginController($scope,$http){
+    function loginController($scope,$http, $cookieStore){
     
        $scope.checkCredentials=function(){
+       
         if (($scope.name == null) ||  ($scope.password == null)) {
            window.alert("Please fill the fields !!!!");
             } else if(($scope.name == "hangers" ) || ($scope.password == "Admin")){
               $scope.message="Welcome Admin!!!";
-               
+              $cookieStore.put("loggedInStatus", "true");
+              $cookieStore.put("path", "/stockIn");
               
             }else{
               $scope.message="Wrong Credentials";
