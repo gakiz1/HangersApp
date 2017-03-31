@@ -16,7 +16,7 @@ import javax.ws.rs.core.MediaType;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.hangers.constants.DigitalDiningConstants;
+
 import com.hangers.data.DatabaseServices;
 import com.hangers.pojo.Item;
 

@@ -16,8 +16,6 @@ import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import com.hangers.constants.DigitalDiningConstants;
 import com.hangers.pojo.Item;
 
 
