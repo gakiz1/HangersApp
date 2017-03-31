@@ -25,6 +25,7 @@
               $scope.message="Welcome Admin!!!";
              /* $cookieStore.put("loggedInStatus", "true");
               $cookieStore.put("path", "/stockIn");*/
+              window.location.assign("https://hangers.herokuapp.com/#/stockIn");
               
             }else{
               $scope.message="Wrong Credentials";
